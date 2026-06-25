@@ -1573,9 +1573,10 @@
             background: #fa4b6e;
             color: #fff;
         }
+        /* PROGRESS BAR – SMALLER (2px) */
         .progress-bar {
             flex: 1;
-            height: 4px;
+            height: 2px;
             background: rgba(255, 255, 255, 0.2);
             border-radius: 4px;
             cursor: pointer;
@@ -2938,6 +2939,12 @@
             z-index: 3;
         }
 
+        /* ===== Reduced Motion ===== */
+        .reduce-motion * {
+            animation-duration: 0.01ms !important;
+            transition-duration: 0.01ms !important;
+        }
+
         /* ===== RESPONSIVE ===== */
         @media (max-width: 860px) {
             .header {
@@ -3091,324 +3098,6 @@
             .yt-search-results {
                 grid-template-columns: 1fr;
             }
-        }
-
-        /* ===== ADAPTIVE ENGINE — ADD-ON STYLES (no main code changes) ===== */
-        /* TV Mode focus indicators */
-        .tv-mode .channel-card:focus-visible,
-        .tv-mode .filter-tab:focus-visible,
-        .tv-mode .source-btn:focus-visible,
-        .tv-mode .control-btn:focus-visible,
-        .tv-mode .search-add-btn:focus-visible,
-        .tv-mode .close-panel:focus-visible,
-        .tv-mode .nav-arrow:focus-visible,
-        .tv-mode .toggle-btn:focus-visible,
-        .tv-mode .movie-card:focus-visible,
-        .tv-mode .yt-result-card:focus-visible,
-        .tv-mode .hero-btn:focus-visible,
-        .tv-mode .settings-icon:focus-visible,
-        .tv-mode .avatar-btn:focus-visible,
-        .tv-mode .setting-card:focus-visible,
-        .tv-mode .favorites-toggle:focus-visible,
-        .tv-mode .sub-source-btn:focus-visible,
-        .tv-mode .btn-action:focus-visible,
-        .tv-mode .video-card:focus-visible {
-            outline: 3px solid #00f2fe !important;
-            outline-offset: 4px !important;
-            box-shadow: 0 0 0 8px rgba(0, 242, 254, 0.25) !important;
-            transform: scale(1.04);
-            transition: outline 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
-        }
-
-        .tv-mode .channel-card:focus-visible .channel-logo,
-        .tv-mode .movie-card:focus-visible .movie-poster {
-            transform: scale(1.02);
-        }
-
-        /* TV Mode large text & cards */
-        .tv-mode .channel-card .channel-name {
-            font-size: 16px !important;
-        }
-        .tv-mode .channel-card .channel-logo {
-            width: 72px !important;
-            height: 72px !important;
-            font-size: 30px !important;
-        }
-        .tv-mode .channels-grid.tv-grid {
-            grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)) !important;
-            gap: 20px !important;
-        }
-        .tv-mode .movie-card {
-            width: 180px !important;
-        }
-        .tv-mode .movie-title {
-            font-size: 16px !important;
-        }
-        .tv-mode .movie-year {
-            font-size: 13px !important;
-        }
-        .tv-mode .filter-tab {
-            font-size: 16px !important;
-            padding: 8px 22px !important;
-        }
-        .tv-mode .source-btn {
-            font-size: 16px !important;
-            padding: 10px 28px !important;
-        }
-        .tv-mode .control-btn {
-            width: 48px !important;
-            height: 48px !important;
-            font-size: 18px !important;
-        }
-        .tv-mode .channel-info {
-            font-size: 18px !important;
-            padding: 10px 24px !important;
-        }
-        .tv-mode .hero-title {
-            font-size: 42px !important;
-        }
-        .tv-mode .hero-desc {
-            font-size: 18px !important;
-        }
-        .tv-mode .hero-btn {
-            font-size: 20px !important;
-            padding: 14px 36px !important;
-        }
-        .tv-mode .toast {
-            font-size: 18px !important;
-            padding: 16px 36px !important;
-        }
-        .tv-mode .search-input {
-            font-size: 16px !important;
-            padding: 14px 22px !important;
-        }
-        .tv-mode .logo-text {
-            font-size: 34px !important;
-        }
-        .tv-mode .settings-panel .panel-header h2 {
-            font-size: 30px !important;
-        }
-        .tv-mode .settings-panel .setting-card .info .title {
-            font-size: 18px !important;
-        }
-        .tv-mode .settings-panel .setting-card .info .desc {
-            font-size: 15px !important;
-        }
-        .tv-mode .profile-panel .panel-header h2 {
-            font-size: 30px !important;
-        }
-        .tv-mode .profile-panel .profile-card .info .name {
-            font-size: 26px !important;
-        }
-        .tv-mode .profile-panel .profile-card .info .email {
-            font-size: 17px !important;
-        }
-        .tv-mode .profile-panel .profile-menu .menu-item {
-            font-size: 18px !important;
-            padding: 14px 18px !important;
-        }
-
-        /* TV Mode remote-friendly controls — bigger, more spaced */
-        .tv-mode .video-controls {
-            padding: 16px 24px !important;
-            gap: 18px !important;
-        }
-        .tv-mode .speed-select,
-        .tv-mode .quality-select {
-            font-size: 16px !important;
-            padding: 8px 16px !important;
-        }
-        .tv-mode #volumeSlider {
-            width: 90px !important;
-            height: 6px !important;
-        }
-        .tv-mode .progress-bar {
-            height: 8px !important;
-        }
-
-        /* TV Mode D-pad hint overlay (subtle) */
-        .tv-mode .video-wrapper::after {
-            content: '▲ ▼ ◄ ►  ·  CH+/-';
-            position: absolute;
-            bottom: 80px;
-            right: 20px;
-            color: rgba(255, 255, 255, 0.2);
-            font-size: 13px;
-            font-weight: 400;
-            letter-spacing: 1px;
-            pointer-events: none;
-            z-index: 30;
-            background: rgba(0, 0, 0, 0.3);
-            padding: 4px 12px;
-            border-radius: 20px;
-            backdrop-filter: blur(4px);
-        }
-
-        /* Low-end: reduce animations, simpler shadows */
-        .low-end .movie-card {
-            transition: transform 0.15s ease !important;
-        }
-        .low-end .movie-card:hover {
-            transform: scale(1.02) !important;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4) !important;
-        }
-        .low-end .channel-card:hover {
-            transform: translateY(-2px) !important;
-        }
-        .low-end .logo-icon {
-            animation: none !important;
-        }
-        .low-end .logo-text::after,
-        .low-end .support-notice::after {
-            animation: none !important;
-        }
-        .low-end .hero-slide {
-            transition: opacity 0.4s ease-in-out !important;
-        }
-        .low-end .poster-actions {
-            transition: opacity 0.15s !important;
-        }
-        .low-end .video-controls {
-            transition: opacity 0.15s !important;
-        }
-        .low-end .spinner {
-            animation-duration: 1.5s !important;
-        }
-
-        /* High-end: extra glow & particle effects (subtle) */
-        .high-end .logo-icon {
-            animation: subtleGlow 2s infinite alternate !important;
-        }
-        .high-end .video-wrapper {
-            border-color: rgba(0, 242, 254, 0.5) !important;
-            box-shadow: 0 0 40px rgba(0, 242, 254, 0.08), 0 30px 40px rgba(0, 0, 0, 0.7) !important;
-        }
-        .high-end .channel-card:hover {
-            box-shadow: 0 0 24px rgba(0, 242, 254, 0.2) !important;
-        }
-        .high-end .movie-card:hover {
-            box-shadow: 0 0 30px rgba(0, 242, 254, 0.15) !important;
-        }
-        .high-end .hero-btn {
-            box-shadow: 0 0 20px rgba(0, 242, 254, 0.3) !important;
-        }
-        .high-end .control-btn:hover {
-            transform: scale(1.12) !important;
-        }
-
-        /* Mobile: touch-first — larger touch targets */
-        .mobile .channel-card .channel-fav {
-            width: 36px !important;
-            height: 36px !important;
-            font-size: 18px !important;
-        }
-        .mobile .control-btn {
-            width: 44px !important;
-            height: 44px !important;
-            font-size: 16px !important;
-        }
-        .mobile .search-input {
-            font-size: 16px !important;
-            padding: 14px 18px !important;
-        }
-        .mobile .filter-tab {
-            padding: 8px 18px !important;
-            font-size: 14px !important;
-        }
-        .mobile .source-btn {
-            padding: 10px 18px !important;
-            font-size: 14px !important;
-        }
-        .mobile .close-panel {
-            width: 44px !important;
-            height: 44px !important;
-            font-size: 28px !important;
-        }
-        .mobile .search-add-btn {
-            width: 48px !important;
-            height: 48px !important;
-            font-size: 24px !important;
-        }
-        .mobile .search-clear {
-            width: 40px !important;
-            height: 40px !important;
-            font-size: 18px !important;
-        }
-        .mobile .avatar-btn {
-            width: 42px !important;
-            height: 42px !important;
-            font-size: 18px !important;
-        }
-        .mobile .settings-icon {
-            width: 42px !important;
-            height: 42px !important;
-            font-size: 20px !important;
-        }
-        .mobile .movie-card {
-            width: 120px !important;
-        }
-        .mobile .video-card {
-            width: 120px !important;
-        }
-        .mobile .yt-result-card {
-            font-size: 14px !important;
-        }
-        .mobile .toast {
-            font-size: 16px !important;
-            padding: 14px 28px !important;
-        }
-
-        /* Tablet: hybrid — balanced sizing */
-        .tablet .channel-card .channel-logo {
-            width: 60px !important;
-            height: 60px !important;
-        }
-        .tablet .control-btn {
-            width: 42px !important;
-            height: 42px !important;
-        }
-        .tablet .movie-card {
-            width: 150px !important;
-        }
-        .tablet .video-card {
-            width: 150px !important;
-        }
-        .tablet .channels-grid.tv-grid {
-            grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)) !important;
-        }
-
-        /* Desktop: hover & refinement (already default, but ensure) */
-        .desktop .channel-card:hover .poster-actions {
-            opacity: 1 !important;
-        }
-        .desktop .video-controls {
-            opacity: 0 !important;
-        }
-        .desktop .video-wrapper:hover .video-controls {
-            opacity: 1 !important;
-        }
-
-        /* Touch devices: larger tap targets & no hover delays */
-        .touch .channel-card:hover {
-            transform: none !important;
-        }
-        .touch .movie-card:hover {
-            transform: none !important;
-        }
-        .touch .video-card:hover {
-            transform: none !important;
-        }
-        .touch .poster-actions {
-            opacity: 1 !important;
-            background: rgba(0, 0, 0, 0.5) !important;
-        }
-
-        /* Mouse devices: fine pointer — keep hover */
-        .mouse .channel-card:hover {
-            transform: translateY(-4px) !important;
-        }
-        .mouse .movie-card:hover {
-            transform: scale(1.05) !important;
         }
     </style>
 </head>
@@ -3670,13 +3359,16 @@
                 emailEnabled: true,
                 reminderEnabled: true,
                 profileVisibility: 'public',
-                historyEnabled: true,
+                watchHistory: true,
                 twoFactorAuth: false,
                 offlineMode: false,
                 highContrast: false,
                 fontScale: 1.0,
-                performanceMode: true,
+                performanceMode: false,
                 experimentalFeatures: false,
+                colorBlindMode: 'none',
+                reducedMotion: false,
+                downloads: []
             };
 
             function loadSettings() {
@@ -3697,49 +3389,235 @@
             let settings = loadSettings();
 
             // ================================================================
-            //  APPLY SETTINGS (theme, dark mode, etc.) — FIXED
+            //  APPLY SETTINGS (theme, dark mode, etc.)
             // ================================================================
             function applySettings() {
-                // --- Dark Mode ---
+                // Dark Mode
                 if (settings.darkMode) {
                     document.body.classList.remove('light-mode');
                 } else {
                     document.body.classList.add('light-mode');
                 }
 
-                // --- Theme / Accent Colors via CSS custom properties ---
+                // Theme / Accent Colors
                 document.documentElement.style.setProperty('--theme-color', settings.themeColor);
                 document.documentElement.style.setProperty('--accent-color', settings.accentColor);
 
-                // --- High Contrast ---
+                // High Contrast
                 if (settings.highContrast) {
                     document.body.style.filter = 'contrast(1.4) brightness(1.1)';
                 } else {
                     document.body.style.filter = 'none';
                 }
 
-                // --- Font Scale ---
+                // Font Scale
                 document.body.style.fontSize = (settings.fontScale * 100) + '%';
 
-                // --- Autoplay — will be applied in player logic ---
-                // --- Subtitles — applied in player logic ---
+                // Color Blind Mode
+                const colorBlindMap = {
+                    'none': '',
+                    'protanopia': 'hue-rotate(0deg) saturate(0.8) contrast(1.2)',
+                    'deuteranopia': 'hue-rotate(0deg) saturate(0.7) contrast(1.1)',
+                    'tritanopia': 'hue-rotate(180deg) saturate(0.9)'
+                };
+                const filter = colorBlindMap[settings.colorBlindMode] || '';
+                // We already set body.style.filter for high contrast, so combine
+                const currentFilter = document.body.style.filter;
+                document.body.style.filter = currentFilter + ' ' + filter;
+
+                // Reduced Motion
+                if (settings.reducedMotion) {
+                    document.body.classList.add('reduce-motion');
+                } else {
+                    document.body.classList.remove('reduce-motion');
+                }
+
+                // Performance Mode – just a toast (handled in toggle)
+                // Experimental Features – just a toast (handled in toggle)
             }
 
             applySettings();
 
             // ================================================================
-            //  SETTINGS DETAIL RENDERER
+            //  GENERAL SETTINGS – update date display
+            // ================================================================
+            function applyGeneralSettings() {
+                const tz = settings.timezone || 'UTC';
+                const now = new Date();
+                const dateSpan = document.querySelector('#dateDisplay span');
+                if (dateSpan) {
+                    try {
+                        dateSpan.innerText = now.toLocaleDateString([], {
+                            weekday: 'short',
+                            month: 'short',
+                            day: 'numeric',
+                            timeZone: tz
+                        });
+                    } catch (e) {
+                        dateSpan.innerText = now.toLocaleDateString();
+                    }
+                }
+            }
+            applyGeneralSettings();
+
+            // ================================================================
+            //  NOTIFICATIONS (Push)
+            // ================================================================
+            function requestPushPermission() {
+                if (!('Notification' in window)) {
+                    showToast('⚠️ Push notifications not supported in this browser', true);
+                    return false;
+                }
+                if (Notification.permission === 'granted') {
+                    new Notification('DarkRanks ULTRA', { body: 'Push notifications enabled!' });
+                    return true;
+                } else if (Notification.permission === 'denied') {
+                    showToast('⚠️ Push permission denied', true);
+                    return false;
+                } else {
+                    Notification.requestPermission().then(perm => {
+                        if (perm === 'granted') {
+                            new Notification('DarkRanks ULTRA', { body: 'Push notifications enabled!' });
+                            showToast('✅ Push notifications enabled');
+                        } else {
+                            showToast('⚠️ Push permission not granted', true);
+                            settings.pushEnabled = false;
+                            saveSettings(settings);
+                            // update toggle UI
+                            const toggles = document.querySelectorAll('.toggle-switch[data-key="pushEnabled"]');
+                            toggles.forEach(t => t.classList.remove('active'));
+                        }
+                    });
+                    return false;
+                }
+            }
+
+            // ================================================================
+            //  DOWNLOADS – IndexedDB
+            // ================================================================
+            const DB_NAME = 'DarkRanksDownloads';
+            const STORE_NAME = 'videos';
+
+            function openDB() {
+                return new Promise((resolve, reject) => {
+                    const request = indexedDB.open(DB_NAME, 1);
+                    request.onupgradeneeded = (e) => {
+                        const db = e.target.result;
+                        if (!db.objectStoreNames.contains(STORE_NAME)) {
+                            db.createObjectStore(STORE_NAME, { keyPath: 'id' });
+                        }
+                    };
+                    request.onsuccess = (e) => resolve(e.target.result);
+                    request.onerror = (e) => reject(e.target.error);
+                });
+            }
+
+            async function getDownloads() {
+                const db = await openDB();
+                return new Promise((resolve, reject) => {
+                    const tx = db.transaction(STORE_NAME, 'readonly');
+                    const store = tx.objectStore(STORE_NAME);
+                    const all = store.getAll();
+                    all.onsuccess = () => resolve(all.result);
+                    all.onerror = () => reject(all.error);
+                });
+            }
+
+            async function addDownload(item) {
+                const db = await openDB();
+                return new Promise((resolve, reject) => {
+                    const tx = db.transaction(STORE_NAME, 'readwrite');
+                    const store = tx.objectStore(STORE_NAME);
+                    item.id = item.id || 'dl_' + Date.now();
+                    item.size = item.size || 0;
+                    item.date = new Date().toISOString();
+                    const request = store.put(item);
+                    request.onsuccess = () => resolve(item);
+                    request.onerror = () => reject(request.error);
+                });
+            }
+
+            async function removeDownload(id) {
+                const db = await openDB();
+                return new Promise((resolve, reject) => {
+                    const tx = db.transaction(STORE_NAME, 'readwrite');
+                    const store = tx.objectStore(STORE_NAME);
+                    const request = store.delete(id);
+                    request.onsuccess = () => resolve();
+                    request.onerror = () => reject(request.error);
+                });
+            }
+
+            async function getTotalDownloadSize() {
+                const items = await getDownloads();
+                return items.reduce((sum, item) => sum + (item.size || 0), 0);
+            }
+
+            function formatBytes(bytes) {
+                if (bytes === 0) return '0 Bytes';
+                const k = 1024;
+                const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+                const i = Math.floor(Math.log(bytes) / Math.log(k));
+                return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+            }
+
+            async function renderDownloadList() {
+                const container = document.getElementById('downloadList');
+                if (!container) return;
+                const items = await getDownloads();
+                if (items.length === 0) {
+                    container.innerHTML = '<div style="color:#9aa8b9;font-size:13px;padding:10px 0;">No downloads yet</div>';
+                    return;
+                }
+                let html = '';
+                for (const item of items) {
+                    html += `
+                        <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.05);">
+                            <div style="display:flex;align-items:center;gap:10px;">
+                                <img src="${item.thumbnail || 'https://via.placeholder.com/40'}" style="width:40px;height:40px;border-radius:6px;object-fit:cover;">
+                                <div>
+                                    <div style="font-size:13px;font-weight:500;">${item.title}</div>
+                                    <div style="font-size:11px;color:#9aa8b9;">${item.type} · ${formatBytes(item.size || 0)}</div>
+                                </div>
+                            </div>
+                            <button class="btn-action danger" data-dl-id="${item.id}" style="padding:4px 12px;font-size:12px;">Delete</button>
+                        </div>
+                    `;
+                }
+                container.innerHTML = html;
+                container.querySelectorAll('[data-dl-id]').forEach(btn => {
+                    btn.addEventListener('click', async function() {
+                        const id = this.dataset.dlId;
+                        await removeDownload(id);
+                        renderDownloadList();
+                        updateDownloadsInfo();
+                        showToast('🗑️ Removed from downloads');
+                    });
+                });
+                updateDownloadsInfo();
+            }
+
+            async function updateDownloadsInfo() {
+                const totalSize = await getTotalDownloadSize();
+                const storageField = document.querySelector('#detailBody .setting-row .session-item');
+                if (storageField) {
+                    storageField.textContent = `${formatBytes(totalSize)} / 32 GB`;
+                }
+                // Also update the count in profile dropdown
+                const dlCount = document.querySelector('.profile-dropdown .menu-item .count');
+                if (dlCount) {
+                    const items = await getDownloads();
+                    dlCount.textContent = items.length;
+                }
+            }
+
+            // ================================================================
+            //  SETTINGS DETAIL RENDERER (extended)
             // ================================================================
             const detailOverlay = document.getElementById('settingsDetailOverlay');
             const detailBody = document.getElementById('detailBody');
             const detailTitle = document.getElementById('detailTitle');
             const closeDetail = document.getElementById('closeDetail');
-
-            // Helper: refresh the detail view after a change
-            function refreshDetailView(settingKey) {
-                // Re-render the detail panel
-                openDetail(settingKey);
-            }
 
             function openDetail(settingKey) {
                 const configs = {
@@ -3782,12 +3660,9 @@
                         icon: 'fa-palette',
                         label: 'Appearance',
                         fields: [
-                            { type: 'toggle', key: 'darkMode', label: 'Dark Mode',
-                            sub: 'Enable dark theme' },
-                            { type: 'color', key: 'themeColor', label: 'Theme Color',
-                                sub: 'Primary accent color' },
-                            { type: 'color', key: 'accentColor', label: 'Accent Color',
-                                sub: 'Secondary accent color' },
+                            { type: 'toggle', key: 'darkMode', label: 'Dark Mode', sub: 'Enable dark theme' },
+                            { type: 'color', key: 'themeColor', label: 'Theme Color', sub: 'Primary accent color' },
+                            { type: 'color', key: 'accentColor', label: 'Accent Color', sub: 'Secondary accent color' },
                         ]
                     },
                     player: {
@@ -3803,22 +3678,17 @@
                                     ['720', '720p'],
                                     ['1080', '1080p']
                                 ] },
-                            { type: 'toggle', key: 'autoplay', label: 'Autoplay',
-                                sub: 'Automatically play next item' },
-                            { type: 'toggle', key: 'subtitles', label: 'Subtitles',
-                                sub: 'Show subtitles when available' },
+                            { type: 'toggle', key: 'autoplay', label: 'Autoplay', sub: 'Automatically play next item' },
+                            { type: 'toggle', key: 'subtitles', label: 'Subtitles', sub: 'Show subtitles when available' },
                         ]
                     },
                     notifications: {
                         icon: 'fa-bell',
                         label: 'Notifications',
                         fields: [
-                            { type: 'toggle', key: 'pushEnabled', label: 'Push Notifications',
-                                sub: 'Receive push alerts' },
-                            { type: 'toggle', key: 'emailEnabled', label: 'Email Notifications',
-                                sub: 'Receive email updates' },
-                            { type: 'toggle', key: 'reminderEnabled', label: 'Reminders',
-                                sub: 'Get reminded about new content' },
+                            { type: 'toggle', key: 'pushEnabled', label: 'Push Notifications', sub: 'Receive push alerts' },
+                            { type: 'toggle', key: 'emailEnabled', label: 'Email Notifications', sub: 'Receive email updates' },
+                            { type: 'toggle', key: 'reminderEnabled', label: 'Reminders', sub: 'Get reminded about new content' },
                         ]
                     },
                     privacy: {
@@ -3830,52 +3700,48 @@
                                     ['private', 'Private'],
                                     ['friends', 'Friends Only']
                                 ] },
-                            { type: 'toggle', key: 'historyEnabled', label: 'Watch History',
-                                sub: 'Save your watch history' },
+                            { type: 'toggle', key: 'watchHistory', label: 'Watch History', sub: 'Save your watch history' },
                         ]
                     },
                     security: {
                         icon: 'fa-shield-alt',
                         label: 'Security',
                         fields: [
-                            { type: 'button', key: 'changePassword', label: 'Change Password',
-                                sub: 'Update your login password', action: 'changePassword' },
-                            { type: 'toggle', key: 'twoFactorAuth', label: 'Two-Factor Authentication',
-                                sub: 'Extra security layer' },
-                            { type: 'info', key: 'sessions', label: 'Active Sessions',
-                                sub: 'Devices currently logged in', value: 'Chrome (current) · Firefox · Mobile' },
+                            { type: 'button', key: 'changePassword', label: 'Change Password', sub: 'Update your login password', action: 'changePassword' },
+                            { type: 'toggle', key: 'twoFactorAuth', label: 'Two-Factor Authentication', sub: 'Extra security layer' },
+                            { type: 'info', key: 'sessions', label: 'Active Sessions', sub: 'Devices currently logged in', value: 'Chrome (current) · Firefox · Mobile' },
                         ]
                     },
                     downloads: {
                         icon: 'fa-download',
                         label: 'Downloads',
                         fields: [
-                            { type: 'info', key: 'storage', label: 'Storage Used',
-                                sub: 'Total space consumed by downloads', value: '2.4 GB / 32 GB' },
-                            { type: 'toggle', key: 'offlineMode', label: 'Offline Mode',
-                                sub: 'Allow downloads for offline viewing' },
+                            { type: 'info', key: 'storage', label: 'Storage Used', sub: 'Total space consumed by downloads', value: '0 GB / 32 GB' },
+                            { type: 'toggle', key: 'offlineMode', label: 'Offline Mode', sub: 'Allow downloads for offline viewing' },
                         ]
                     },
                     accessibility: {
                         icon: 'fa-universal-access',
                         label: 'Accessibility',
                         fields: [
-                            { type: 'toggle', key: 'highContrast', label: 'High Contrast',
-                                sub: 'Increase contrast for better visibility' },
-                            { type: 'range', key: 'fontScale', label: 'Font Scaling', min: 0.8, max: 1.6,
-                                step: 0.05, unit: 'x' },
+                            { type: 'toggle', key: 'highContrast', label: 'High Contrast', sub: 'Increase contrast for better visibility' },
+                            { type: 'range', key: 'fontScale', label: 'Font Scaling', min: 0.8, max: 1.6, step: 0.05, unit: 'x' },
+                            { type: 'select', key: 'colorBlindMode', label: 'Color Blind Mode', options: [
+                                    ['none', 'None'],
+                                    ['protanopia', 'Protanopia'],
+                                    ['deuteranopia', 'Deuteranopia'],
+                                    ['tritanopia', 'Tritanopia']
+                                ] },
+                            { type: 'toggle', key: 'reducedMotion', label: 'Reduced Motion', sub: 'Disable animations and transitions' },
                         ]
                     },
                     advanced: {
                         icon: 'fa-flask',
                         label: 'Advanced',
                         fields: [
-                            { type: 'toggle', key: 'performanceMode', label: 'Performance Mode',
-                                sub: 'Optimize for speed (may reduce quality)' },
-                            { type: 'toggle', key: 'experimentalFeatures', label: 'Experimental Features',
-                                sub: 'Early access to new features' },
-                            { type: 'button', key: 'resetAll', label: 'Reset All Settings',
-                                sub: 'Restore default settings', action: 'resetAll', danger: true },
+                            { type: 'toggle', key: 'performanceMode', label: 'Performance Mode', sub: 'Optimize for speed (may reduce quality)' },
+                            { type: 'toggle', key: 'experimentalFeatures', label: 'Experimental Features', sub: 'Early access to new features' },
+                            { type: 'button', key: 'resetAll', label: 'Reset All Settings', sub: 'Restore default settings', action: 'resetAll', danger: true },
                         ]
                     }
                 };
@@ -3892,8 +3758,7 @@
 
                     const labelDiv = document.createElement('div');
                     labelDiv.className = 'label';
-                    labelDiv.innerHTML =
-                        `${field.label}${field.sub ? `<span class="sub">${field.sub}</span>` : ''}`;
+                    labelDiv.innerHTML = `${field.label}${field.sub ? `<span class="sub">${field.sub}</span>` : ''}`;
 
                     const controlDiv = document.createElement('div');
                     controlDiv.className = 'control';
@@ -3905,20 +3770,17 @@
                             const val = settings[field.key] || field.options[0][0];
                             let opts = field.options.map(([k, v]) =>
                                 `<option value="${k}" ${k===val?'selected':''}>${v}</option>`).join('');
-                            controlHtml =
-                                `<select data-key="${field.key}" class="setting-select">${opts}</select>`;
+                            controlHtml = `<select data-key="${field.key}" class="setting-select">${opts}</select>`;
                             break;
                         }
                         case 'toggle': {
                             const val = settings[field.key] !== undefined ? settings[field.key] : true;
-                            controlHtml =
-                                `<div class="toggle-switch ${val?'active':''}" data-key="${field.key}"><div class="knob"></div></div>`;
+                            controlHtml = `<div class="toggle-switch ${val?'active':''}" data-key="${field.key}"><div class="knob"></div></div>`;
                             break;
                         }
                         case 'color': {
                             const val = settings[field.key] || '#00f2fe';
-                            controlHtml =
-                                `<input type="color" data-key="${field.key}" class="setting-color" value="${val}">`;
+                            controlHtml = `<input type="color" data-key="${field.key}" class="setting-color" value="${val}">`;
                             break;
                         }
                         case 'range': {
@@ -3927,19 +3789,19 @@
                             const max = field.max || 1.6;
                             const step = field.step || 0.05;
                             const unit = field.unit || 'x';
-                            controlHtml =
-                                `<input type="range" data-key="${field.key}" class="setting-range" min="${min}" max="${max}" step="${step}" value="${val}"><span class="range-value" id="rangeVal_${field.key}">${val}${unit}</span>`;
+                            controlHtml = `
+                                <input type="range" data-key="${field.key}" class="setting-range" min="${min}" max="${max}" step="${step}" value="${val}">
+                                <span class="range-value" id="rangeVal_${field.key}">${val}${unit}</span>
+                            `;
                             break;
                         }
                         case 'button': {
                             const danger = field.danger ? 'danger' : '';
-                            controlHtml =
-                                `<button class="btn-action ${danger}" data-action="${field.action}" data-key="${field.key}">${field.label}</button>`;
+                            controlHtml = `<button class="btn-action ${danger}" data-action="${field.action}" data-key="${field.key}">${field.label}</button>`;
                             break;
                         }
                         case 'info': {
-                            controlHtml =
-                                `<span class="session-item">${field.value || ''}</span>`;
+                            controlHtml = `<span class="session-item">${field.value || ''}</span>`;
                             break;
                         }
                         default: {
@@ -3952,7 +3814,7 @@
                     row.appendChild(controlDiv);
                     detailBody.appendChild(row);
 
-                    // ---- Event bindings for this row ----
+                    // ---- Event bindings ----
                     const selectEl = row.querySelector('.setting-select');
                     if (selectEl) {
                         selectEl.addEventListener('change', (e) => {
@@ -3960,8 +3822,12 @@
                             settings[key] = e.target.value;
                             saveSettings(settings);
                             applySettings();
+                            applyGeneralSettings(); // update date display
                             showToast(`✅ ${key} updated to ${e.target.value}`);
-                            // Re-render if darkMode changed? No, but we re-apply
+                            // Re-render if needed for colorBlindMode
+                            if (key === 'colorBlindMode') {
+                                applySettings();
+                            }
                         });
                     }
 
@@ -3975,12 +3841,56 @@
                             toggleEl.classList.toggle('active', newVal);
                             saveSettings(settings);
                             applySettings();
-                            showToast(`✅ ${key} ${newVal ? 'enabled' : 'disabled'}`);
-                            // If this is darkMode, we already re-applied
-                            // If autoplay, update player state
-                            if (key === 'autoplay') {
-                                // Will be read by player logic
+
+                            // Specific toggles
+                            if (key === 'subtitles') {
+                                showToast(newVal ? 'Subtitles enabled (no tracks available)' : 'Subtitles disabled');
                             }
+                            if (key === 'pushEnabled') {
+                                if (newVal) {
+                                    requestPushPermission();
+                                } else {
+                                    showToast('Push notifications disabled');
+                                }
+                            }
+                            if (key === 'emailEnabled' || key === 'reminderEnabled') {
+                                showToast(`${key} ${newVal ? 'enabled' : 'disabled'}`);
+                            }
+                            if (key === 'watchHistory') {
+                                if (!newVal) {
+                                    // Clear existing history
+                                    localStorage.removeItem('recently_watched_channels');
+                                    localStorage.removeItem('youtube_watch_history');
+                                    localStorage.removeItem('movie_progress');
+                                    recentlyWatched = [];
+                                    youtubeWatchHistory = [];
+                                    movieProgress = {};
+                                    showToast('Watch history cleared');
+                                } else {
+                                    showToast('Watch history enabled');
+                                }
+                            }
+                            if (key === 'twoFactorAuth') {
+                                showToast(newVal ? 'Two‑factor authentication enabled' : 'Two‑factor authentication disabled');
+                            }
+                            if (key === 'offlineMode') {
+                                showToast(newVal ? 'Offline mode enabled. Downloaded content will be available.' : 'Offline mode disabled.');
+                            }
+                            if (key === 'highContrast' || key === 'reducedMotion' || key === 'performanceMode' || key === 'experimentalFeatures') {
+                                if (key === 'performanceMode') {
+                                    showToast(newVal ? 'Performance mode enabled (some effects reduced)' : 'Performance mode disabled');
+                                }
+                                if (key === 'experimentalFeatures') {
+                                    showToast(newVal ? 'Experimental features enabled. New UI elements may appear.' : 'Experimental features disabled');
+                                }
+                                if (key === 'reducedMotion') {
+                                    showToast(newVal ? 'Reduced motion enabled' : 'Reduced motion disabled');
+                                }
+                                if (key === 'highContrast') {
+                                    showToast(newVal ? 'High contrast enabled' : 'High contrast disabled');
+                                }
+                            }
+                            // Re-render download list if offline mode toggled? Not needed.
                         });
                     }
 
@@ -4034,7 +3944,7 @@
                                     settings = { ...defaultSettings };
                                     saveSettings(settings);
                                     applySettings();
-                                    // Re-render the detail view
+                                    applyGeneralSettings();
                                     openDetail(settingKey);
                                     showToast('✅ All settings reset to default');
                                 }
@@ -4042,6 +3952,17 @@
                         });
                     }
                 });
+
+                // If downloads panel, add download list container
+                if (settingKey === 'downloads') {
+                    const listContainer = document.createElement('div');
+                    listContainer.id = 'downloadListContainer';
+                    listContainer.style.marginTop = '16px';
+                    listContainer.innerHTML = '<h4 style="font-size:14px;margin-bottom:8px;">Downloaded Items</h4><div id="downloadList"></div>';
+                    detailBody.appendChild(listContainer);
+                    renderDownloadList();
+                }
+
                 detailOverlay.classList.add('open');
             }
 
@@ -4059,7 +3980,7 @@
                 });
             });
 
-            // ---- Keyboard shortcut to close detail ----
+            // ---- Keyboard shortcut ----
             document.addEventListener('keydown', (e) => {
                 if (e.key === 'Escape' && detailOverlay.classList.contains('open')) {
                     detailOverlay.classList.remove('open');
@@ -4067,7 +3988,7 @@
             });
 
             // ================================================================
-            //  EXISTING CODE (unchanged except for profile interactions)
+            //  EXISTING CODE (unchanged except for added hooks)
             // ================================================================
 
             // ================================================================
@@ -4280,6 +4201,7 @@
                 e) {}
 
             function addYoutubeWatchHistory(videoId) {
+                if (!settings.watchHistory) return;
                 youtubeWatchHistory = youtubeWatchHistory.filter(id => id !== videoId);
                 youtubeWatchHistory.unshift(videoId);
                 if (youtubeWatchHistory.length > 50) youtubeWatchHistory.pop();
@@ -4292,6 +4214,7 @@
             try { const mp = localStorage.getItem('movie_progress'); if (mp) movieProgress = JSON.parse(mp); } catch (e) {}
 
             function saveMovieProgress(imdbId, progress) {
+                if (!settings.watchHistory) return;
                 if (progress > 5) { movieProgress[imdbId] = progress;
                     localStorage.setItem('movie_progress', JSON.stringify(movieProgress)); }
             }
@@ -4581,6 +4504,48 @@
             const closeSettings = document.getElementById('closeSettings');
             const settingsFromProfile = document.getElementById('settingsFromProfile');
             const signOutDropdown = document.getElementById('signOutDropdown');
+
+            // ================================================================
+            //  ADD DOWNLOAD BUTTON TO CONTROLS
+            // ================================================================
+            const controls = document.getElementById('videoControls');
+            if (controls) {
+                const dlBtn = document.createElement('button');
+                dlBtn.className = 'control-btn';
+                dlBtn.id = 'downloadBtn';
+                dlBtn.innerHTML = '<i class="fas fa-download"></i>';
+                dlBtn.title = 'Download current media';
+                // Insert before the fav button
+                const fav = document.getElementById('favBtn');
+                controls.insertBefore(dlBtn, fav ? fav.nextSibling : null);
+
+                dlBtn.addEventListener('click', async function(e) {
+                    e.stopPropagation();
+                    if (!displayItems.length || currentIdx >= displayItems.length) {
+                        showToast('Nothing to download', true);
+                        return;
+                    }
+                    const item = displayItems[currentIdx];
+                    let dlItem = {
+                        title: item.name || item.title || 'Untitled',
+                        type: currentSource,
+                        url: item.url || item.videoId || item.imdbId,
+                        thumbnail: item.logo || item.thumbnail || '',
+                        size: 1024 * 1024 * 5 // simulate 5MB
+                    };
+                    if (currentSource === 'movies' && item.imdbId) {
+                        dlItem.imdbId = item.imdbId;
+                        dlItem.year = item.year;
+                    }
+                    await addDownload(dlItem);
+                    showToast('✅ Downloaded: ' + dlItem.title);
+                    updateDownloadsInfo();
+                    // If downloads detail is open, re-render
+                    if (detailOverlay.classList.contains('open')) {
+                        renderDownloadList();
+                    }
+                });
+            }
 
             // ================================================================
             //  HELPER FUNCTIONS
@@ -5053,7 +5018,7 @@
             }
 
             // ================================================================
-            //  playChannel (core)
+            //  playChannel (core) – with autoplay ended listener
             // ================================================================
             async function playChannel(index, isRetry = false) {
                 if (!displayItems.length) return;
@@ -5096,6 +5061,13 @@
                             video.play();
                             populateQuality(hls.levels);
                             updateControlsVisibility();
+                            // Autoplay ended listener
+                            video.addEventListener('ended', function onEnded() {
+                                if (settings.autoplay) {
+                                    playNext();
+                                }
+                                video.removeEventListener('ended', onEnded);
+                            });
                         });
                         hls.on(Hls.Events.ERROR, (_, data) => {
                             if (data.fatal) {
@@ -5137,7 +5109,7 @@
                             populateQuality(hls.levels);
                             errorCount = 0;
                             updateControlsVisibility();
-                            if (currentSource === 'local' || currentSource === 'global') {
+                            if (settings.watchHistory && (currentSource === 'local' || currentSource === 'global')) {
                                 recentlyWatched = recentlyWatched.filter(c => c.url !== item.url);
                                 recentlyWatched.unshift({ ...item });
                                 if (recentlyWatched.length > 20) recentlyWatched.pop();
@@ -5145,6 +5117,13 @@
                                     recentlyWatched));
                                 renderCategoryTabs();
                             }
+                            // Autoplay ended listener
+                            video.addEventListener('ended', function onEnded() {
+                                if (settings.autoplay) {
+                                    playNext();
+                                }
+                                video.removeEventListener('ended', onEnded);
+                            });
                         });
                         hls.on(Hls.Events.ERROR, (_, data) => {
                             if (data.fatal) {
@@ -5169,7 +5148,7 @@
                         video.onloadedmetadata = () => {
                             loadingOverlay.classList.remove('active');
                             errorCount = 0;
-                            if (currentSource === 'local' || currentSource === 'global') {
+                            if (settings.watchHistory && (currentSource === 'local' || currentSource === 'global')) {
                                 recentlyWatched = recentlyWatched.filter(c => c.url !== item.url);
                                 recentlyWatched.unshift({ ...item });
                                 if (recentlyWatched.length > 20) recentlyWatched.pop();
@@ -5177,6 +5156,13 @@
                                     recentlyWatched));
                                 renderCategoryTabs();
                             }
+                            // Autoplay ended listener
+                            video.addEventListener('ended', function onEnded() {
+                                if (settings.autoplay) {
+                                    playNext();
+                                }
+                                video.removeEventListener('ended', onEnded);
+                            });
                         };
                         video.onerror = () => {
                             errorCount++;
@@ -6034,7 +6020,7 @@
             }
 
             // ================================================================
-            //  PROFILE OVERLAY ACTIONS (NEW)
+            //  PROFILE OVERLAY ACTIONS
             // ================================================================
             function setupProfileActions() {
                 const profileMenu = document.getElementById('profileMenu');
@@ -6045,18 +6031,15 @@
                         const action = this.dataset.action;
                         if (!action) return;
 
-                        // Close profile overlay after action
                         profileOverlay.classList.remove('open');
 
                         switch (action) {
                             case 'continue':
                                 showToast('📺 Continue Watching: 4 items');
-                                // Navigate to continue watching (could show in channels grid)
                                 if (currentSource === 'movies') {
-                                    // Show continue watching in movies
+                                    // show continue watching in movies
                                 } else {
                                     setSource('local');
-                                    // Try to show recently watched
                                     if (recentlyWatched.length > 0) {
                                         currentCategory = 'Recently Watched';
                                         refreshDisplay();
@@ -6067,7 +6050,6 @@
                                 break;
                             case 'favorites':
                                 showToast('❤️ Favorites: 23 items');
-                                // Show favorites
                                 if (currentSource === 'movies') {
                                     showFavMovies = !showFavMovies;
                                     movieFavToggle.classList.toggle('active', showFavMovies);
@@ -6104,10 +6086,10 @@
                             case 'signout':
                                 if (confirm('Are you sure you want to sign out?')) {
                                     showToast('👋 Signed out successfully');
-                                    // Reset to default state
                                     settings = { ...defaultSettings };
                                     saveSettings(settings);
                                     applySettings();
+                                    applyGeneralSettings();
                                 }
                                 break;
                             default:
@@ -6127,6 +6109,7 @@
                         settings = { ...defaultSettings };
                         saveSettings(settings);
                         applySettings();
+                        applyGeneralSettings();
                     }
                 });
             }
@@ -6583,1107 +6566,6 @@
                 updateFavButton(); }, 500);
 
             console.log('✅ DarkRanks ULTRA — all settings & profile actions fully functional');
-        })();
-    </script>
-
-    <!-- ================================================================ -->
-    <!--  VOICE COMMAND SYSTEM — ULTRA 2.0 (25x improved)                -->
-    <!--  – Fully standalone, no main code changes.                     -->
-    <!--  – Persistent across tabs, rich audio feedback, 75+ commands. -->
-    <!-- ================================================================ -->
-    <script>
-        (function() {
-            'use strict';
-
-            // ========================================================================
-            //  CONFIGURATION
-            // ========================================================================
-            const CONFIG = {
-                // If true, you must say "Hey DR" or "Hey DarkRanks" before each command.
-                // If false, the mic is always listening (push-to-talk style — click mic to toggle).
-                USE_WAKE_WORD: false, // set to true if you prefer wake-word activation
-
-                // Auto-restart recognition on tab focus
-                AUTO_RESTART_ON_FOCUS: true,
-
-                // Timeout for wake word (ms)
-                WAKE_TIMEOUT: 8000,
-
-                // Language
-                LANG: 'en-US',
-
-                // Speech rate for feedback (0.8 – 1.2)
-                SPEECH_RATE: 1.0,
-
-                // Enable debug logging
-                DEBUG: false,
-            };
-
-            // ========================================================================
-            //  STATE
-            // ========================================================================
-            let isListening = false;
-            let wakeWordDetected = false;
-            let wakeTimeout = null;
-            let recognition = null;
-            let micBtn = null;
-            let isSpeaking = false;
-            let lastCommand = '';
-            let commandHistory = [];
-
-            // ========================================================================
-            //  DOM REFS (reused from main page)
-            // ========================================================================
-            const toast = document.getElementById('toast');
-            const searchInput = document.getElementById('searchInput');
-            const video = document.getElementById('video');
-            const playPauseBtn = document.getElementById('playPauseBtn');
-            const muteBtn = document.getElementById('muteBtn');
-            const volSlider = document.getElementById('volumeSlider');
-            const fullscreenBtn = document.getElementById('fullscreenBtn');
-            const prevBtn = document.getElementById('prevBtn');
-            const nextBtn = document.getElementById('nextBtn');
-            const favBtn = document.getElementById('favBtn');
-            const speedSelect = document.getElementById('speedSelect');
-            const qualitySelect = document.getElementById('qualitySelect');
-            const channelPanel = document.getElementById('channelPanel');
-            const channelToggle = document.getElementById('channelToggle');
-            const settingsBtn = document.getElementById('settingsBtn');
-            const profileBtn = document.getElementById('profileBtn');
-            const favToggle = document.getElementById('favToggle');
-            const movieFavToggle = document.getElementById('movieFavToggle');
-            const videoFavToggle = document.getElementById('videoFavToggle');
-            const sourceButtons = document.querySelectorAll('.source-btn');
-            const categoryTabs = document.querySelectorAll('#categoryTabs .filter-tab');
-            const genreTabs = document.querySelectorAll('#genreTabs .filter-tab');
-            const subSourceBtns = document.querySelectorAll('.sub-source-btn');
-            const youtubeCategoryTabs = document.querySelectorAll('#youtubeCategoryTabs .filter-tab');
-            const countryFilter = document.getElementById('countryFilter');
-            const closePanelBtn = document.getElementById('closePanel');
-            const progressBar = document.getElementById('progressBar');
-
-            // ========================================================================
-            //  TOAST + SPEECH HELPERS
-            // ========================================================================
-            function showToast(msg, err = false) {
-                if (!toast) return;
-                toast.innerText = msg;
-                toast.style.color = err ? '#fa4b6e' : '#fff';
-                toast.classList.add('show');
-                clearTimeout(toast._hide);
-                toast._hide = setTimeout(() => toast.classList.remove('show'), 2500);
-            }
-
-            function speak(text, callback) {
-                if (!window.speechSynthesis) {
-                    if (callback) callback();
-                    return;
-                }
-                if (isSpeaking) {
-                    window.speechSynthesis.cancel();
-                }
-                const utterance = new SpeechSynthesisUtterance(text);
-                utterance.lang = CONFIG.LANG;
-                utterance.rate = CONFIG.SPEECH_RATE;
-                utterance.pitch = 1.05;
-                utterance.volume = 1;
-                isSpeaking = true;
-                utterance.onend = function() {
-                    isSpeaking = false;
-                    if (callback) callback();
-                };
-                utterance.onerror = function() {
-                    isSpeaking = false;
-                    if (callback) callback();
-                };
-                window.speechSynthesis.speak(utterance);
-            }
-
-            // ========================================================================
-            //  COMMAND ENGINE — 75+ COMMANDS
-            // ========================================================================
-            const commands = [];
-
-            // Helper: add command with patterns and action
-            function addCommand(patterns, action, description, examples) {
-                commands.push({
-                    patterns: Array.isArray(patterns) ? patterns : [patterns],
-                    action: action,
-                    description: description || '',
-                    examples: examples || []
-                });
-            }
-
-            // Helper: check if a string matches any pattern
-            function matchPattern(text, patterns) {
-                for (let p of patterns) {
-                    if (typeof p === 'string') {
-                        if (text.toLowerCase().includes(p.toLowerCase())) return true;
-                    } else if (p instanceof RegExp) {
-                        if (p.test(text)) return true;
-                    }
-                }
-                return false;
-            }
-
-            // Helper: extract capture groups
-            function extractMatch(text, patterns) {
-                for (let p of patterns) {
-                    if (typeof p === 'string') {
-                        if (text.toLowerCase().includes(p.toLowerCase())) return [text];
-                    } else if (p instanceof RegExp) {
-                        const m = text.match(p);
-                        if (m) return m;
-                    }
-                }
-                return null;
-            }
-
-            // ===== NAVIGATION (12) =====
-            addCommand(
-                [/open home/i, /go home/i, /home/i, /main menu/i],
-                () => { clickSource('local');
-                    respond('Opening Home', '🏠 Home'); },
-                'Open Home'
-            );
-            addCommand(
-                [/open tv/i, /go tv/i, /tv/i, /local tv/i, /live tv/i],
-                () => { clickSource('local');
-                    respond('Opening Local TV', '📺 TV'); },
-                'Open TV'
-            );
-            addCommand(
-                [/open global/i, /global iptv/i, /go global/i, /international tv/i],
-                () => { clickSource('global');
-                    respond('Opening Global IPTV', '🌍 Global'); },
-                'Open Global IPTV'
-            );
-            addCommand(
-                [/open movies/i, /go movies/i, /movies/i, /movie world/i],
-                () => { clickSource('movies');
-                    respond('Opening Movies World', '🎬 Movies'); },
-                'Open Movies'
-            );
-            addCommand(
-                [/open youtube/i, /go youtube/i, /youtube/i, /yt/i],
-                () => { clickSource('youtube');
-                    respond('Opening YouTube Hub', '📽️ YouTube'); },
-                'Open YouTube'
-            );
-            addCommand(
-                [/open facebook/i, /facebook videos/i, /fb videos/i],
-                () => { clickSource('youtube');
-                    setTimeout(() => { clickSubSource('facebook');
-                        respond('Opening Facebook Videos', '📘 Facebook'); }, 300); },
-                'Open Facebook'
-            );
-            addCommand(
-                [/open favorites/i, /favorites/i, /show favorites/i],
-                () => { clickFavToggle();
-                    respond('Opening Favorites', '⭐ Favorites'); },
-                'Open Favorites'
-            );
-            addCommand(
-                [/open history/i, /history/i, /watch history/i],
-                () => { openHistory();
-                    respond('Opening History', '📜 History'); },
-                'Open History'
-            );
-            addCommand(
-                [/open profile/i, /profile/i, /my profile/i],
-                () => { if (profileBtn) { profileBtn.click();
-                        respond('Opening Profile', '👤 Profile'); } },
-                'Open Profile'
-            );
-            addCommand(
-                [/open settings/i, /settings/i, /preferences/i],
-                () => { if (settingsBtn) { settingsBtn.click();
-                        respond('Opening Settings', '⚙️ Settings'); } },
-                'Open Settings'
-            );
-            addCommand(
-                [/open panel/i, /open guide/i, /guide/i, /show guide/i],
-                () => { if (channelToggle) { channelToggle.click();
-                        respond('Opening Guide', '📋 Guide'); } },
-                'Open Guide'
-            );
-            addCommand(
-                [/close panel/i, /close guide/i, /hide guide/i],
-                () => { if (closePanelBtn) { closePanelBtn.click();
-                        respond('Closing Guide', '✕'); } },
-                'Close Guide'
-            );
-
-            // ===== PLAYBACK (12) =====
-            addCommand(
-                [/play/i, /resume/i, /continue/i, /unpause/i],
-                () => { if (video) { video.play();
-                        respond('Playing', '▶️'); } },
-                'Play'
-            );
-            addCommand(
-                [/pause/i, /stop/i, /freeze/i],
-                () => { if (video) { video.pause();
-                        respond('Paused', '⏸️'); } },
-                'Pause'
-            );
-            addCommand(
-                [/next/i, /next channel/i, /skip/i, /forward/i],
-                () => { if (nextBtn) { nextBtn.click();
-                        respond('Next', '⏭️'); } },
-                'Next Channel'
-            );
-            addCommand(
-                [/previous/i, /prev channel/i, /back/i, /go back/i],
-                () => { if (prevBtn) { prevBtn.click();
-                        respond('Previous', '⏮️'); } },
-                'Previous Channel'
-            );
-            addCommand(
-                [/fullscreen/i, /full screen/i, /maximize/i],
-                () => { if (fullscreenBtn) { fullscreenBtn.click();
-                        respond('Fullscreen', '⛶'); } },
-                'Fullscreen'
-            );
-            addCommand(
-                [/exit fullscreen/i, /exit full screen/i, /window/i, /minimize/i],
-                () => { if (document.fullscreenElement) { document.exitFullscreen();
-                        respond('Exit Fullscreen', '⛶'); } },
-                'Exit Fullscreen'
-            );
-            addCommand(
-                [/mute/i, /silence/i, /quiet/i],
-                () => { if (video) { video.muted = true; if (muteBtn) muteBtn.click();
-                        respond('Muted', '🔇'); } },
-                'Mute'
-            );
-            addCommand(
-                [/unmute/i, /sound on/i, /volume on/i, /hear/i],
-                () => { if (video) { video.muted = false; if (muteBtn) muteBtn.click();
-                        respond('Unmuted', '🔊'); } },
-                'Unmute'
-            );
-            addCommand(
-                [/volume up/i, /increase volume/i, /louder/i],
-                () => { adjustVolume(0.1);
-                    respond('Volume Up', '🔊'); },
-                'Volume Up'
-            );
-            addCommand(
-                [/volume down/i, /decrease volume/i, /quieter/i, /softer/i],
-                () => { adjustVolume(-0.1);
-                    respond('Volume Down', '🔉'); },
-                'Volume Down'
-            );
-            addCommand(
-                [/volume (\d+)(?: percent|%)/i, /set volume to (\d+)/i, /volume (\d+)/i],
-                (match) => { const pct = parseInt(match[1] || match[2] || match[3]); if (!isNaN(pct)) { setVolume(
-                            pct);
-                        respond(`Volume ${pct} percent`, `🔊 ${pct}%`); } },
-                'Set Volume'
-            );
-            addCommand(
-                [/favorite/i, /add to favorites/i, /like/i, /heart/i],
-                () => { if (favBtn) { favBtn.click();
-                        respond('Toggled Favorite', '❤️'); } },
-                'Toggle Favorite'
-            );
-
-            // ===== SPEED (5) =====
-            addCommand(
-                [/speed up/i, /faster/i, /speed 1.5/i, /1.5x/i],
-                () => { if (video) { video.playbackRate = Math.min(2, video.playbackRate + 0.25);
-                        respond(`Speed ${video.playbackRate.toFixed(2)}x`, `🚀 ${video.playbackRate.toFixed(2)}x`); } },
-                'Speed Up'
-            );
-            addCommand(
-                [/speed down/i, /slower/i, /speed 0.5/i, /0.5x/i],
-                () => { if (video) { video.playbackRate = Math.max(0.25, video.playbackRate - 0.25);
-                        respond(`Speed ${video.playbackRate.toFixed(2)}x`, `🐢 ${video.playbackRate.toFixed(2)}x`); } },
-                'Speed Down'
-            );
-            addCommand(
-                [/normal speed/i, /speed 1/i, /1x/i, /reset speed/i],
-                () => { if (video) { video.playbackRate = 1;
-                        respond('Normal Speed', '1x'); } },
-                'Normal Speed'
-            );
-            addCommand(
-                [/speed 2/i, /2x/i, /double speed/i],
-                () => { if (video) { video.playbackRate = 2;
-                        respond('2x Speed', '2x'); } },
-                'Speed 2x'
-            );
-            addCommand(
-                [/speed 0.25/i, /0.25x/i, /quarter speed/i],
-                () => { if (video) { video.playbackRate = 0.25;
-                        respond('Quarter Speed', '0.25x'); } },
-                'Speed 0.25x'
-            );
-
-            // ===== SEARCH (3) =====
-            addCommand(
-                [/search (.+)/i, /find (.+)/i, /look for (.+)/i],
-                (match) => { const query = (match[1] || '').trim(); if (query) { doSearch(query);
-                        respond(`Searching for ${query}`, `🔍 ${query}`); } },
-                'Search'
-            );
-            addCommand(
-                [/search youtube for (.+)/i, /youtube search (.+)/i, /yt search (.+)/i],
-                (match) => { const query = (match[1] || '').trim(); if (query) { doYoutubeSearch(query);
-                        respond(`Searching YouTube for ${query}`, `📹 ${query}`); } },
-                'YouTube Search'
-            );
-            addCommand(
-                [/search imdb for (.+)/i, /imdb (.+)/i, /movie search (.+)/i],
-                (match) => { const query = (match[1] || '').trim(); if (query) { doIMDBSearch(query);
-                        respond(`Searching IMDb for ${query}`, `🎬 ${query}`); } },
-                'IMDb Search'
-            );
-
-            // ===== CATEGORY / GENRE (14) =====
-            const catMap = {
-                'sports': 'Sports',
-                'news': 'News',
-                'entertainment': 'Entertainment',
-                'music': 'Music',
-                'documentary': 'Documentary',
-                'kids': 'Kids',
-                'series': 'Series',
-                'cooking': 'Cooking',
-                'movies': 'Movies'
-            };
-            addCommand(
-                [/show (sports|news|entertainment|music|documentary|kids|series|cooking|movies) channels?/i],
-                (match) => { const key = match[1].toLowerCase(); const target = catMap[key]; if (target) { clickCategory(
-                            target);
-                        respond(`Showing ${target} channels`, `📂 ${target}`); } },
-                'Show Category'
-            );
-
-            const genreMap = {
-                'action': 'Action',
-                'comedy': 'Comedy',
-                'drama': 'Drama',
-                'horror': 'Horror',
-                'adventure': 'Adventure',
-                'animation': 'Animation',
-                'crime': 'Crime',
-                'mystery': 'Mystery',
-                'romance': 'Romance',
-                'fantasy': 'Fantasy',
-                'sci-fi': 'Sci-Fi',
-                'thriller': 'Thriller',
-                'trend': 'Trend'
-            };
-            addCommand(
-                [/show (action|comedy|drama|horror|adventure|animation|crime|mystery|romance|fantasy|sci-fi|thriller|trend) movies?/i],
-                (match) => { const key = match[1].toLowerCase(); const target = genreMap[key]; if (target) { clickGenre(
-                            target);
-                        respond(`Showing ${target} movies`, `🎬 ${target}`); } },
-                'Show Movie Genre'
-            );
-
-            // ===== YOUTUBE SPECIFIC (4) =====
-            addCommand(
-                [/youtube trending/i, /trending videos/i, /trending youtube/i],
-                () => { clickYoutubeTab('Trending');
-                    respond('Opening Trending Videos', '📈 Trending'); },
-                'YouTube Trending'
-            );
-            addCommand(
-                [/youtube music/i, /music videos/i, /music youtube/i],
-                () => { clickYoutubeTab('Music');
-                    respond('Opening Music Videos', '🎵 Music'); },
-                'YouTube Music'
-            );
-            addCommand(
-                [/youtube gaming/i, /gaming videos/i, /gameplay/i],
-                () => { clickYoutubeTab('Gaming');
-                    respond('Opening Gaming Videos', '🎮 Gaming'); },
-                'YouTube Gaming'
-            );
-            addCommand(
-                [/youtube trailers/i, /movie trailers/i, /trailers/i],
-                () => { clickYoutubeTab('Trailers');
-                    respond('Opening Trailers', '🎬 Trailers'); },
-                'YouTube Trailers'
-            );
-
-            // ===== COUNTRY FILTER (2) =====
-            addCommand(
-                [/filter country (.*)/i, /country (.*)/i, /show (.*) channels/i],
-                (match) => { const country = (match[1] || '').trim(); if (country) { setCountryFilter(country);
-                        respond(`Filtering by ${country}`, `🌍 ${country}`); } },
-                'Filter by Country'
-            );
-            addCommand(
-                [/reset country/i, /all countries/i, /show all/i],
-                () => { resetCountryFilter();
-                    respond('Showing All Countries', '🌍 All'); },
-                'Reset Country Filter'
-            );
-
-            // ===== HELP (1) =====
-            addCommand(
-                [/help/i, /commands/i, /what can i say/i, /voice help/i],
-                () => { showHelp();
-                    respond('Here are the available voice commands. Check the toast for details.', '❓ Help'); },
-                'Help'
-            );
-
-            // ===== CONTINUE WATCHING (1) =====
-            addCommand(
-                [/continue watching/i, /resume watching/i, /keep watching/i],
-                () => { if (video && video.currentTime > 0) { video.play();
-                        respond('Resuming playback', '▶️'); } else { showToast('No content to resume', true);
-                        respond('No content to resume', '⏳'); } },
-                'Continue Watching'
-            );
-
-            // ===== PIP (1) =====
-            addCommand(
-                [/picture in picture/i, /pip/i, /floating video/i],
-                () => { const pipBtn = document.getElementById('pipBtn'); if (pipBtn) { pipBtn.click();
-                        respond('Picture in Picture', '📺'); } },
-                'Picture in Picture'
-            );
-
-            // ===== QUALITY (2) =====
-            addCommand(
-                [/quality auto/i, /auto quality/i],
-                () => { if (qualitySelect) { qualitySelect.value = 'auto';
-                        qualitySelect.dispatchEvent(new Event('change'));
-                        respond('Auto Quality', '📶 Auto'); } },
-                'Auto Quality'
-            );
-            addCommand(
-                [/quality (\d+)(?:p|p)/i, /set quality to (\d+)/i, /(\d+)p/i],
-                (match) => { const q = match[1] || match[2]; if (q && qualitySelect) { const val = q + 'p'; const found =
-                            Array.from(qualitySelect.options).some(opt => { if (opt.text.includes(val)) { qualitySelect
-                                    .value = opt.value;
-                                qualitySelect.dispatchEvent(new Event('change')); return true; } return false; }); if (
-                            found) respond(`Quality ${val}`, `📶 ${val}`);
-                        else respond(`Quality ${val} not available`, `📶`); } },
-                'Set Quality'
-            );
-
-            // ===== PLAY COMMAND (fallback) =====
-            addCommand(
-                [/play (.*)/i],
-                (match) => { const query = (match[1] || '').trim(); if (query) { playByName(query); } },
-                'Play by name'
-            );
-
-            // ========================================================================
-            //  COMMAND EXECUTION ENGINE
-            // ========================================================================
-            function executeCommand(transcript) {
-                const text = transcript.trim().toLowerCase();
-                if (!text) return false;
-
-                // Log command
-                if (CONFIG.DEBUG) console.log('[Voice] Command:', text);
-
-                // Try to match against all commands
-                for (let cmd of commands) {
-                    for (let pattern of cmd.patterns) {
-                        let matched = false;
-                        let matchResult = null;
-
-                        if (typeof pattern === 'string') {
-                            if (text.includes(pattern.toLowerCase())) {
-                                matched = true;
-                                matchResult = [text];
-                            }
-                        } else if (pattern instanceof RegExp) {
-                            const m = text.match(pattern);
-                            if (m) {
-                                matched = true;
-                                matchResult = m;
-                            }
-                        }
-
-                        if (matched) {
-                            try {
-                                cmd.action(matchResult);
-                                lastCommand = text;
-                                commandHistory.push({ command: text, timestamp: Date.now() });
-                                if (commandHistory.length > 50) commandHistory.shift();
-                                return true;
-                            } catch (e) {
-                                console.error('[Voice] Command error:', e);
-                                showToast('⚠️ Command error', true);
-                                return false;
-                            }
-                        }
-                    }
-                }
-
-                // No match
-                showToast(`❓ Command not recognized: "${text}"`, true);
-                speak(`Command not recognized. Say help for a list of commands.`);
-                return false;
-            }
-
-            // ========================================================================
-            //  ACTION HELPERS (interact with UI)
-            // ========================================================================
-            function clickSource(source) {
-                const btn = document.querySelector(`.source-btn[data-source="${source}"]`);
-                if (btn) { btn.click(); return true; }
-                return false;
-            }
-
-            function clickSubSource(sub) {
-                const btn = document.querySelector(`.sub-source-btn[data-sub="${sub}"]`);
-                if (btn) { btn.click(); return true; }
-                return false;
-            }
-
-            function clickFavToggle() {
-                if (favToggle) { favToggle.click(); return true; }
-                if (movieFavToggle) { movieFavToggle.click(); return true; }
-                if (videoFavToggle) { videoFavToggle.click(); return true; }
-                return false;
-            }
-
-            function clickCategory(category) {
-                const tabs = document.querySelectorAll('#categoryTabs .filter-tab');
-                for (let tab of tabs) {
-                    if (tab.innerText.trim().toLowerCase() === category.toLowerCase()) {
-                        tab.click();
-                        return true;
-                    }
-                }
-                // If not found, try to search
-                if (searchInput) {
-                    searchInput.value = category;
-                    searchInput.dispatchEvent(new Event('input', { bubbles: true }));
-                    return true;
-                }
-                return false;
-            }
-
-            function clickGenre(genre) {
-                // Switch to movies first
-                clickSource('movies');
-                setTimeout(() => {
-                    const tabs = document.querySelectorAll('#genreTabs .filter-tab');
-                    for (let tab of tabs) {
-                        if (tab.innerText.trim().toLowerCase() === genre.toLowerCase()) {
-                            tab.click();
-                            return;
-                        }
-                    }
-                }, 300);
-                return true;
-            }
-
-            function clickYoutubeTab(tabName) {
-                clickSource('youtube');
-                setTimeout(() => {
-                    const tabs = document.querySelectorAll('#youtubeCategoryTabs .filter-tab');
-                    for (let tab of tabs) {
-                        if (tab.innerText.trim().toLowerCase() === tabName.toLowerCase()) {
-                            tab.click();
-                            return;
-                        }
-                    }
-                }, 300);
-            }
-
-            function openHistory() {
-                clickSource('youtube');
-                setTimeout(() => {
-                    const tabs = document.querySelectorAll('#youtubeCategoryTabs .filter-tab');
-                    for (let tab of tabs) {
-                        if (tab.innerText.trim().toLowerCase() === 'history') {
-                            tab.click();
-                            return;
-                        }
-                    }
-                }, 300);
-            }
-
-            function doSearch(query) {
-                if (searchInput) {
-                    searchInput.value = query;
-                    searchInput.dispatchEvent(new Event('input', { bubbles: true }));
-                    // Also trigger enter key for YouTube
-                    searchInput.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', bubbles: true }));
-                }
-            }
-
-            function doYoutubeSearch(query) {
-                clickSource('youtube');
-                setTimeout(() => {
-                    if (searchInput) {
-                        searchInput.value = query;
-                        searchInput.dispatchEvent(new Event('input', { bubbles: true }));
-                        searchInput.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', bubbles: true }));
-                    }
-                }, 300);
-            }
-
-            function doIMDBSearch(query) {
-                clickSource('movies');
-                setTimeout(() => {
-                    if (searchInput) {
-                        searchInput.value = query;
-                        searchInput.dispatchEvent(new Event('input', { bubbles: true }));
-                    }
-                }, 300);
-            }
-
-            function setCountryFilter(country) {
-                if (!countryFilter) return;
-                const opts = countryFilter.options;
-                for (let opt of opts) {
-                    if (opt.value.toLowerCase() === country.toLowerCase()) {
-                        countryFilter.value = opt.value;
-                        countryFilter.dispatchEvent(new Event('change'));
-                        return;
-                    }
-                }
-                // Try partial match
-                for (let opt of opts) {
-                    if (opt.value.toLowerCase().includes(country.toLowerCase())) {
-                        countryFilter.value = opt.value;
-                        countryFilter.dispatchEvent(new Event('change'));
-                        return;
-                    }
-                }
-            }
-
-            function resetCountryFilter() {
-                if (countryFilter) {
-                    countryFilter.value = 'All';
-                    countryFilter.dispatchEvent(new Event('change'));
-                }
-            }
-
-            function adjustVolume(delta) {
-                if (!video) return;
-                let v = video.volume + delta;
-                v = Math.min(1, Math.max(0, v));
-                video.volume = v;
-                video.muted = false;
-                if (volSlider) {
-                    volSlider.value = v * 100;
-                    volSlider.dispatchEvent(new Event('input'));
-                }
-                // Update mute button
-                if (muteBtn && v > 0) {
-                    muteBtn.click();
-                }
-            }
-
-            function setVolume(pct) {
-                if (!video) return;
-                const v = Math.min(100, Math.max(0, pct)) / 100;
-                video.volume = v;
-                video.muted = false;
-                if (volSlider) {
-                    volSlider.value = v * 100;
-                    volSlider.dispatchEvent(new Event('input'));
-                }
-                if (muteBtn && v > 0) {
-                    muteBtn.click();
-                }
-            }
-
-            function playByName(query) {
-                // Try to find and click a matching card
-                const cards = document.querySelectorAll(
-                    '.channel-card, .movie-card, .video-card, .yt-result-card, .hero-btn');
-                let found = false;
-                for (let card of cards) {
-                    const nameEl = card.querySelector('.channel-name, .movie-title, .video-title, .yt-result-title, .hero-title');
-                    if (nameEl) {
-                        const name = nameEl.innerText.trim().toLowerCase();
-                        if (name.includes(query.toLowerCase())) {
-                            card.click();
-                            found = true;
-                            respond(`Playing ${nameEl.innerText.trim()}`, '▶️');
-                            return;
-                        }
-                    }
-                }
-                if (!found) {
-                    // Fallback to search
-                    if (searchInput) {
-                        searchInput.value = query;
-                        searchInput.dispatchEvent(new Event('input', { bubbles: true }));
-                        respond(`Searching for ${query}`, '🔍');
-                    } else {
-                        showToast(`No match found for "${query}"`, true);
-                        speak(`No match found for ${query}`);
-                    }
-                }
-            }
-
-            function showHelp() {
-                const cmdList = commands.map(c => `• ${c.description}`).join('\n');
-                const msg = `Voice Commands available:\n${cmdList}\n\nSay a command anytime after clicking the mic.`;
-                showToast('🎤 Say "help" for all commands');
-                speak(
-                    `Here are some voice commands. You can say: open TV, open movies, play, pause, next, previous, volume up, volume down, mute, unmute, fullscreen, search, and many more.`
-                    );
-                // Also log to console
-                console.log('[Voice] Available commands:', commands.map(c => c.description).join(', '));
-            }
-
-            // ========================================================================
-            //  RESPONSE SYSTEM (audio + visual)
-            // ========================================================================
-            function respond(text, emoji = '') {
-                // Visual toast
-                showToast(`${emoji} ${text}`);
-                // Speak it
-                speak(text);
-                // Update mic indicator briefly
-                if (micBtn) {
-                    micBtn.style.color = '#00ff88';
-                    setTimeout(() => { if (micBtn) micBtn.style.color = ''; }, 800);
-                }
-            }
-
-            // ========================================================================
-            //  SPEECH RECOGNITION
-            // ========================================================================
-            function initRecognition() {
-                const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-                if (!SpeechRecognition) {
-                    console.warn('[Voice] Speech recognition not supported');
-                    if (micBtn) micBtn.style.display = 'none';
-                    return false;
-                }
-
-                recognition = new SpeechRecognition();
-                recognition.continuous = true;
-                recognition.interimResults = true;
-                recognition.lang = CONFIG.LANG;
-                recognition.maxAlternatives = 3;
-
-                // ---- onstart ----
-                recognition.onstart = function() {
-                    isListening = true;
-                    wakeWordDetected = CONFIG.USE_WAKE_WORD ? false : true; // If no wake word, always ready
-                    if (micBtn) {
-                        micBtn.style.color = '#00f2fe';
-                        micBtn.innerHTML = '<i class="fas fa-microphone"></i>';
-                        micBtn.title = 'Voice: ON (click to stop)';
-                    }
-                    showToast('🎤 Listening...', false);
-                    if (!CONFIG.USE_WAKE_WORD) {
-                        speak('Listening');
-                    } else {
-                        speak('Say hey DR to activate');
-                    }
-                };
-
-                // ---- onerror ----
-                recognition.onerror = function(event) {
-                    if (CONFIG.DEBUG) console.warn('[Voice] Error:', event.error);
-
-                    if (event.error === 'not-allowed') {
-                        showToast('⚠️ Microphone access denied', true);
-                        speak('Microphone access denied');
-                        stopListening();
-                        return;
-                    }
-
-                    if (event.error === 'no-speech') {
-                        // Silent ignore
-                        return;
-                    }
-
-                    if (event.error === 'aborted') {
-                        // User stopped
-                        return;
-                    }
-
-                    // For other errors, restart after delay
-                    if (isListening) {
-                        setTimeout(() => {
-                            try { recognition.stop(); } catch (e) {}
-                            setTimeout(() => {
-                                try { recognition.start(); } catch (e) {}
-                            }, 300);
-                        }, 1000);
-                    }
-                };
-
-                // ---- onend ----
-                recognition.onend = function() {
-                    if (isListening) {
-                        // Auto-restart if still supposed to be listening
-                        try { recognition.start(); } catch (e) {}
-                    } else {
-                        if (micBtn) {
-                            micBtn.style.color = '';
-                            micBtn.innerHTML = '<i class="fas fa-microphone"></i>';
-                            micBtn.title = 'Voice: OFF (click to start)';
-                        }
-                    }
-                };
-
-                // ---- onresult ----
-                recognition.onresult = function(event) {
-                    let final = '';
-                    let interim = '';
-
-                    for (let i = event.resultIndex; i < event.results.length; i++) {
-                        const transcript = event.results[i][0].transcript.toLowerCase().trim();
-                        if (event.results[i].isFinal) {
-                            final += transcript + ' ';
-                        } else {
-                            interim += transcript + ' ';
-                        }
-                    }
-
-                    const combined = (final || interim).trim();
-
-                    if (!combined) return;
-
-                    // If using wake word, check for it
-                    if (CONFIG.USE_WAKE_WORD) {
-                        if (!wakeWordDetected) {
-                            // Check for wake words
-                            if (combined.includes('hey dr') || combined.includes('hey darkranks') ||
-                                combined.includes('hey dark ranks') || combined.includes('hello dr') ||
-                                combined.includes('ok dr') || combined.includes('ok darkranks')) {
-                                wakeWordDetected = true;
-                                showToast('🎙️ Yes? Say a command...', false);
-                                speak('Yes?');
-
-                                clearTimeout(wakeTimeout);
-                                wakeTimeout = setTimeout(() => {
-                                    wakeWordDetected = false;
-                                    showToast('⌛ Wake word timeout', false);
-                                    speak('Timeout');
-                                }, CONFIG.WAKE_TIMEOUT);
-
-                                // If there's a command after the wake word in the same utterance, process it
-                                const afterWake = combined.replace(/hey dr|hey darkranks|hey dark ranks|hello dr|ok dr|ok darkranks/i,
-                                    '').trim();
-                                if (afterWake) {
-                                    // Process the command
-                                    const success = executeCommand(afterWake);
-                                    if (success) {
-                                        wakeWordDetected = false;
-                                        clearTimeout(wakeTimeout);
-                                    }
-                                }
-                            }
-                            return;
-                        }
-
-                        // Wake word already detected, process command
-                        // Reset wake word after processing
-                        if (final) {
-                            const success = executeCommand(final);
-                            if (success) {
-                                wakeWordDetected = false;
-                                clearTimeout(wakeTimeout);
-                            } else {
-                                // If command failed, keep wake word active for a bit
-                            }
-                        }
-                    } else {
-                        // No wake word: process everything
-                        if (final) {
-                            executeCommand(final);
-                        }
-                    }
-                };
-
-                // ---- Start ----
-                try { recognition.start(); } catch (e) { console.warn('[Voice] Start error:', e); }
-                return true;
-            }
-
-            function stopListening() {
-                isListening = false;
-                wakeWordDetected = false;
-                if (wakeTimeout) { clearTimeout(wakeTimeout);
-                    wakeTimeout = null; }
-                if (recognition) {
-                    try { recognition.stop(); } catch (e) {}
-                }
-                if (micBtn) {
-                    micBtn.style.color = '';
-                    micBtn.innerHTML = '<i class="fas fa-microphone"></i>';
-                    micBtn.title = 'Voice: OFF (click to start)';
-                }
-                showToast('🔇 Voice off', false);
-                speak('Voice off');
-            }
-
-            function toggleListening() {
-                if (isListening) {
-                    stopListening();
-                } else {
-                    isListening = true;
-                    if (!recognition) {
-                        const ok = initRecognition();
-                        if (!ok) { isListening = false; return; }
-                    } else {
-                        try { recognition.start(); } catch (e) {}
-                    }
-                }
-            }
-
-            // ========================================================================
-            //  TAB VISIBILITY — prevent permission re-prompt
-            // ========================================================================
-            function handleVisibilityChange() {
-                if (!CONFIG.AUTO_RESTART_ON_FOCUS) return;
-                if (document.hidden) {
-                    // Tab hidden: stop recognition to save resources
-                    if (isListening && recognition) {
-                        try { recognition.stop(); } catch (e) {}
-                        if (CONFIG.DEBUG) console.log('[Voice] Paused on tab hidden');
-                    }
-                } else {
-                    // Tab visible: restart if we were listening
-                    if (isListening) {
-                        if (recognition) {
-                            try { recognition.start(); } catch (e) {}
-                            if (CONFIG.DEBUG) console.log('[Voice] Restarted on tab visible');
-                        } else {
-                            initRecognition();
-                        }
-                    }
-                }
-            }
-
-            document.addEventListener('visibilitychange', handleVisibilityChange);
-
-            // Also handle page unload to stop cleanly
-            window.addEventListener('beforeunload', function() {
-                if (recognition) {
-                    try { recognition.stop(); } catch (e) {}
-                }
-                if (window.speechSynthesis) {
-                    window.speechSynthesis.cancel();
-                }
-            });
-
-            // ========================================================================
-            //  CREATE MIC BUTTON
-            // ========================================================================
-            function createMicButton() {
-                const profileWrap = document.querySelector('.profile-wrap');
-                if (!profileWrap) return;
-                if (document.getElementById('micBtn')) return;
-
-                micBtn = document.createElement('button');
-                micBtn.id = 'micBtn';
-                micBtn.className = 'settings-icon';
-                micBtn.innerHTML = '<i class="fas fa-microphone"></i>';
-                micBtn.title = 'Voice: OFF (click to start)';
-                micBtn.style.fontSize = '18px';
-                micBtn.style.position = 'relative';
-                micBtn.style.transition = 'all 0.3s ease';
-
-                // Insert before settings button
-                const settingsIcon = document.getElementById('settingsBtn');
-                if (settingsIcon) {
-                    profileWrap.insertBefore(micBtn, settingsIcon);
-                } else {
-                    profileWrap.appendChild(micBtn);
-                }
-
-                micBtn.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    toggleListening();
-                });
-
-                // Check support
-                const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-                if (!SpeechRecognition) {
-                    micBtn.style.display = 'none';
-                    console.warn('[Voice] Speech recognition not supported in this browser');
-                }
-
-                return micBtn;
-            }
-
-            // ========================================================================
-            //  KEYBOARD SHORTCUT
-            // ========================================================================
-            document.addEventListener('keydown', function(e) {
-                // Ctrl+Shift+V to toggle voice
-                if (e.ctrlKey && e.shiftKey && (e.key === 'v' || e.key === 'V')) {
-                    e.preventDefault();
-                    toggleListening();
-                    showToast(isListening ? '🎤 Voice ON' : '🔇 Voice OFF');
-                }
-                // Escape to stop voice
-                if (e.key === 'Escape' && isListening) {
-                    stopListening();
-                }
-            });
-
-            // ========================================================================
-            //  INIT
-            // ========================================================================
-            function init() {
-                const btn = createMicButton();
-                if (!btn) {
-                    // Try again later
-                    setTimeout(init, 500);
-                    return;
-                }
-
-                // Auto-start listening? No, let user click the mic.
-                // But we can pre-warm the recognition by initializing it silently
-                // so that when user clicks, it's ready.
-                const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-                if (SpeechRecognition) {
-                    // Pre-init but don't start
-                    recognition = new SpeechRecognition();
-                    recognition.continuous = true;
-                    recognition.interimResults = true;
-                    recognition.lang = CONFIG.LANG;
-                    recognition.maxAlternatives = 3;
-                    // Set up minimal handlers
-                    recognition.onerror = function() {};
-                    recognition.onend = function() {};
-                    recognition.onresult = function() {};
-                    // Don't start yet
-                }
-
-                console.log('🎤 Voice Command System ULTRA ready.');
-                console.log(`🔊 ${commands.length} voice commands loaded.`);
-                console.log(`🎯 Wake word: ${CONFIG.USE_WAKE_WORD ? 'ON (say "Hey DR")' : 'OFF (always listening)'}`);
-                console.log('📌 Press Ctrl+Shift+V to toggle voice.');
-
-                // Show welcome
-                setTimeout(() => {
-                    showToast('🎤 Click the mic to start voice control', false);
-                }, 1500);
-            }
-
-            // Run when DOM ready
-            if (document.readyState === 'loading') {
-                document.addEventListener('DOMContentLoaded', init);
-            } else {
-                init();
-            }
-
-            // Expose some functions for debugging
-            window.__voice = {
-                toggle: toggleListening,
-                status: () => isListening ? 'ON' : 'OFF',
-                commands: commands,
-                speak: speak,
-                stop: stopListening,
-                start: () => { isListening = true; if (recognition) recognition.start(); },
-            };
-
         })();
     </script>
 </body>
