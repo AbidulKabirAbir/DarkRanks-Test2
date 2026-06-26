@@ -1573,15 +1573,13 @@
             background: #fa4b6e;
             color: #fff;
         }
-        /* PROGRESS BAR – height 4px, width constrained */
         .progress-bar {
-            flex: 1 1 auto;
+            flex: 1;
             height: 4px;
             background: rgba(255, 255, 255, 0.2);
             border-radius: 4px;
             cursor: pointer;
             min-width: 40px;
-            max-width: 60%;
             transition: background 0.35s ease;
         }
         .progress-fill {
@@ -2940,12 +2938,6 @@
             z-index: 3;
         }
 
-        /* ===== Reduced Motion ===== */
-        .reduce-motion * {
-            animation-duration: 0.01ms !important;
-            transition-duration: 0.01ms !important;
-        }
-
         /* ===== RESPONSIVE ===== */
         @media (max-width: 860px) {
             .header {
@@ -3028,7 +3020,6 @@
             }
             .progress-bar {
                 min-width: 20px;
-                max-width: 50%;
             }
             .profile-panel {
                 padding: 20px;
@@ -3100,8 +3091,168 @@
             .yt-search-results {
                 grid-template-columns: 1fr;
             }
-            .progress-bar {
-                max-width: 40%;
+        }
+
+        /* ===== POSTER SIDE PANEL ===== */
+        .poster-side-panel {
+            flex: 1;
+            min-width: 180px;
+            max-width: 280px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 24px;
+            padding: 20px 16px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(8px);
+            height: fit-content;
+            max-height: 100%;
+            overflow-y: auto;
+            transition: all 0.3s ease;
+        }
+        .poster-side-panel .poster-image {
+            width: 100%;
+            aspect-ratio: 2/3;
+            border-radius: 16px;
+            overflow: hidden;
+            background: #1a1a2e;
+            position: relative;
+            flex-shrink: 0;
+        }
+        .poster-side-panel .poster-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .poster-side-panel .poster-image .fallback-icon {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: #4a4a6a;
+        }
+        .poster-side-panel .poster-title {
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 1.3;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .poster-side-panel .poster-meta {
+            font-size: 13px;
+            color: #9aa8b9;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px 12px;
+        }
+        .poster-side-panel .poster-meta .badge {
+            background: rgba(0, 242, 254, 0.12);
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-size: 11px;
+            color: #00f2fe;
+        }
+        .poster-side-panel .poster-meta .badge.rating {
+            color: #ffd700;
+            background: rgba(255, 215, 0, 0.12);
+        }
+        .poster-side-panel .poster-actions-row {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 4px;
+        }
+        .poster-side-panel .poster-actions-row .btn-sm {
+            padding: 6px 14px;
+            border-radius: 30px;
+            border: none;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255, 255, 255, 0.06);
+            color: #eef2ff;
+        }
+        .poster-side-panel .poster-actions-row .btn-sm:hover {
+            background: rgba(0, 242, 254, 0.2);
+            transform: scale(1.02);
+        }
+        .poster-side-panel .poster-actions-row .btn-sm.primary {
+            background: linear-gradient(135deg, #00f2fe, #fa4b6e);
+            color: #fff;
+        }
+        .poster-side-panel .poster-actions-row .btn-sm.primary:hover {
+            box-shadow: 0 0 20px rgba(0, 242, 254, 0.4);
+        }
+        .poster-side-panel .poster-actions-row .btn-sm.fav-btn.active {
+            color: #fa4b6e;
+        }
+        .poster-side-panel .poster-empty {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            text-align: center;
+            color: #6a7b8e;
+            padding: 30px 10px;
+        }
+        .poster-side-panel .poster-empty i {
+            font-size: 48px;
+            color: #3a4a5e;
+        }
+        .poster-side-panel .poster-empty span {
+            font-size: 14px;
+        }
+
+        @media (max-width: 860px) {
+            .poster-side-panel {
+                flex-direction: row;
+                flex-wrap: wrap;
+                min-width: unset;
+                max-width: unset;
+                padding: 16px;
+                gap: 12px;
+                align-items: center;
+                width: 100%;
+            }
+            .poster-side-panel .poster-image {
+                width: 80px;
+                aspect-ratio: 2/3;
+                flex-shrink: 0;
+            }
+            .poster-side-panel .poster-info {
+                flex: 1;
+                min-width: 120px;
+            }
+            .poster-side-panel .poster-title {
+                font-size: 16px;
+            }
+            .poster-side-panel .poster-actions-row {
+                margin-top: 0;
+            }
+        }
+        @media (max-width: 480px) {
+            .poster-side-panel .poster-image {
+                width: 60px;
+            }
+            .poster-side-panel .poster-title {
+                font-size: 14px;
+            }
+            .poster-side-panel .poster-meta {
+                font-size: 11px;
+            }
+            .poster-side-panel .poster-actions-row .btn-sm {
+                font-size: 10px;
+                padding: 4px 10px;
             }
         }
     </style>
@@ -3206,6 +3357,14 @@
                 </div>
             </div>
         </div>
+
+        <!-- ===== POSTER SIDE PANEL ===== -->
+        <div class="poster-side-panel" id="posterSidePanel">
+            <div class="poster-empty">
+                <i class="fas fa-play-circle"></i>
+                <span>Select a channel, movie, or video to see details here</span>
+            </div>
+        </div>
     </div>
 
     <!-- ===== CHANNEL PANEL ===== -->
@@ -3214,7 +3373,7 @@
         <div class="panel-header" id="panelHeader">
             <div style="display:flex;align-items:center;gap:8px;">
                 <i class="fas fa-dragon dragon-icon"></i>
-                <h3 id="ultraGuideLabel">ULTRA GUIDE · <span id="totalChannelsLabel">0</span> <span id="countType">Channels</span></h3>
+                <h3>ULTRA GUIDE · <span id="totalChannelsLabel">0</span> <span id="countType">Channels</span></h3>
             </div>
             <button class="close-panel" id="closePanel">✕</button>
         </div>
@@ -3231,7 +3390,7 @@
         </div>
         <div class="add-url-overlay" id="addUrlOverlay">
             <div class="add-url-modal">
-                <h3><i class="fas fa-link"></i> <span id="addUrlTitle">Add Video by URL</span></h3>
+                <h3><i class="fas fa-link"></i> Add Video by URL</h3>
                 <input type="text" id="addUrlInput" placeholder="Paste YouTube or Facebook video URL...">
                 <div class="modal-actions">
                     <button class="btn-cancel" id="addUrlCancel">Cancel</button>
@@ -3244,11 +3403,11 @@
             <button class="sub-source-btn" data-sub="facebook">📘 Facebook</button>
         </div>
         <div id="youtubeFilters" style="display:none;" class="filters-section">
-            <div class="filter-label"><span><i class="fas fa-tag"></i> <span id="ytCategoryLabel">Category</span></span><button class="favorites-toggle" id="videoFavToggle"><i class="fas fa-heart"></i> Favorites</button></div>
+            <div class="filter-label"><span><i class="fas fa-tag"></i> Category</span><button class="favorites-toggle" id="videoFavToggle"><i class="fas fa-heart"></i> Favorites</button></div>
             <div class="tabs-container" id="youtubeCategoryTabs"></div>
         </div>
         <div id="tvFilters" class="filters-section tv-filters">
-            <div class="filter-label"><span><i class="fas fa-tag"></i> <span id="tvCategoryLabel">Category</span></span><button class="favorites-toggle" id="favToggle"><i class="fas fa-heart"></i> Favorites</button></div>
+            <div class="filter-label"><span><i class="fas fa-tag"></i> Category</span><button class="favorites-toggle" id="favToggle"><i class="fas fa-heart"></i> Favorites</button></div>
             <div class="tabs-container" id="categoryTabs"></div>
             <div class="country-filter-container" id="countryFilterContainer" style="display:none;margin-top:6px;">
                 <label><i class="fas fa-globe"></i> Country</label>
@@ -3256,7 +3415,7 @@
             </div>
         </div>
         <div id="movieFilters" class="filters-section movie-filters" style="display:none;">
-            <div class="filter-label"><span><i class="fas fa-film"></i> <span id="movieGenreLabel">Genre</span></span><button class="favorites-toggle" id="movieFavToggle">🔰 Favorites</button></div>
+            <div class="filter-label"><span><i class="fas fa-film"></i> Genre</span><button class="favorites-toggle" id="movieFavToggle">🔰 Favorites</button></div>
             <div class="tabs-container" id="genreTabs"></div>
         </div>
         <div id="youtubePanel" class="youtube-panel" style="display:none;"></div>
@@ -3272,19 +3431,19 @@
     <div class="settings-overlay" id="settingsOverlay">
         <div class="settings-panel">
             <div class="panel-header">
-                <h2 id="settingsTitle"><i class="fas fa-cog"></i> Settings</h2>
+                <h2><i class="fas fa-cog"></i> Settings</h2>
                 <button class="close-settings" id="closeSettings"><i class="fas fa-times"></i></button>
             </div>
             <div class="settings-grid" id="settingsGrid">
-                <div class="setting-card" data-setting="general"><div class="icon"><i class="fas fa-globe"></i></div><div class="info"><div class="title" data-i18n="general">General</div><div class="desc" data-i18n="general_desc">Language, region, timezone</div></div><div class="arrow"><i class="fas fa-chevron-right"></i></div></div>
-                <div class="setting-card" data-setting="appearance"><div class="icon"><i class="fas fa-palette"></i></div><div class="info"><div class="title" data-i18n="appearance">Appearance</div><div class="desc" data-i18n="appearance_desc">Dark mode, themes, accent color</div></div><div class="arrow"><i class="fas fa-chevron-right"></i></div></div>
-                <div class="setting-card" data-setting="player"><div class="icon"><i class="fas fa-play-circle"></i></div><div class="info"><div class="title" data-i18n="player">Player</div><div class="desc" data-i18n="player_desc">Quality, autoplay, subtitles</div></div><div class="arrow"><i class="fas fa-chevron-right"></i></div></div>
-                <div class="setting-card" data-setting="notifications"><div class="icon"><i class="fas fa-bell"></i></div><div class="info"><div class="title" data-i18n="notifications">Notifications</div><div class="desc" data-i18n="notifications_desc">Push, email, reminders</div></div><div class="arrow"><i class="fas fa-chevron-right"></i></div></div>
-                <div class="setting-card" data-setting="privacy"><div class="icon"><i class="fas fa-lock"></i></div><div class="info"><div class="title" data-i18n="privacy">Privacy</div><div class="desc" data-i18n="privacy_desc">Profile visibility, history</div></div><div class="arrow"><i class="fas fa-chevron-right"></i></div></div>
-                <div class="setting-card" data-setting="security"><div class="icon"><i class="fas fa-shield-alt"></i></div><div class="info"><div class="title" data-i18n="security">Security</div><div class="desc" data-i18n="security_desc">Password, 2FA, sessions</div></div><div class="arrow"><i class="fas fa-chevron-right"></i></div></div>
-                <div class="setting-card" data-setting="downloads"><div class="icon"><i class="fas fa-download"></i></div><div class="info"><div class="title" data-i18n="downloads">Downloads</div><div class="desc" data-i18n="downloads_desc">Storage, offline mode</div></div><div class="arrow"><i class="fas fa-chevron-right"></i></div></div>
-                <div class="setting-card" data-setting="accessibility"><div class="icon"><i class="fas fa-universal-access"></i></div><div class="info"><div class="title" data-i18n="accessibility">Accessibility</div><div class="desc" data-i18n="accessibility_desc">High contrast, font scaling</div></div><div class="arrow"><i class="fas fa-chevron-right"></i></div></div>
-                <div class="setting-card" data-setting="advanced"><div class="icon"><i class="fas fa-flask"></i></div><div class="info"><div class="title" data-i18n="advanced">Advanced</div><div class="desc" data-i18n="advanced_desc">Performance, experiments</div></div><div class="arrow"><i class="fas fa-chevron-right"></i></div></div>
+                <div class="setting-card" data-setting="general"><div class="icon"><i class="fas fa-globe"></i></div><div class="info"><div class="title">General</div><div class="desc">Language, region, timezone</div></div><div class="arrow"><i class="fas fa-chevron-right"></i></div></div>
+                <div class="setting-card" data-setting="appearance"><div class="icon"><i class="fas fa-palette"></i></div><div class="info"><div class="title">Appearance</div><div class="desc">Dark mode, themes, accent color</div></div><div class="arrow"><i class="fas fa-chevron-right"></i></div></div>
+                <div class="setting-card" data-setting="player"><div class="icon"><i class="fas fa-play-circle"></i></div><div class="info"><div class="title">Player</div><div class="desc">Quality, autoplay, subtitles</div></div><div class="arrow"><i class="fas fa-chevron-right"></i></div></div>
+                <div class="setting-card" data-setting="notifications"><div class="icon"><i class="fas fa-bell"></i></div><div class="info"><div class="title">Notifications</div><div class="desc">Push, email, reminders</div></div><div class="arrow"><i class="fas fa-chevron-right"></i></div></div>
+                <div class="setting-card" data-setting="privacy"><div class="icon"><i class="fas fa-lock"></i></div><div class="info"><div class="title">Privacy</div><div class="desc">Profile visibility, history</div></div><div class="arrow"><i class="fas fa-chevron-right"></i></div></div>
+                <div class="setting-card" data-setting="security"><div class="icon"><i class="fas fa-shield-alt"></i></div><div class="info"><div class="title">Security</div><div class="desc">Password, 2FA, sessions</div></div><div class="arrow"><i class="fas fa-chevron-right"></i></div></div>
+                <div class="setting-card" data-setting="downloads"><div class="icon"><i class="fas fa-download"></i></div><div class="info"><div class="title">Downloads</div><div class="desc">Storage, offline mode</div></div><div class="arrow"><i class="fas fa-chevron-right"></i></div></div>
+                <div class="setting-card" data-setting="accessibility"><div class="icon"><i class="fas fa-universal-access"></i></div><div class="info"><div class="title">Accessibility</div><div class="desc">High contrast, font scaling</div></div><div class="arrow"><i class="fas fa-chevron-right"></i></div></div>
+                <div class="setting-card" data-setting="advanced"><div class="icon"><i class="fas fa-flask"></i></div><div class="info"><div class="title">Advanced</div><div class="desc">Performance, experiments</div></div><div class="arrow"><i class="fas fa-chevron-right"></i></div></div>
             </div>
         </div>
     </div>
@@ -3306,7 +3465,7 @@
     <div class="profile-overlay" id="profileOverlay">
         <div class="profile-panel">
             <div class="panel-header">
-                <h2 id="profileTitle"><i class="fas fa-user-circle"></i> My Profile</h2>
+                <h2><i class="fas fa-user-circle"></i> My Profile</h2>
                 <button class="close-profile" id="closeProfile"><i class="fas fa-times"></i></button>
             </div>
             <div class="profile-card">
@@ -3322,21 +3481,21 @@
                 </div>
             </div>
             <div class="profile-stats">
-                <div class="stat"><div class="num">47</div><div class="label" data-i18n="watch_hours">Watch Hours</div></div>
-                <div class="stat"><div class="num">23</div><div class="label" data-i18n="favorites_label">Favorites</div></div>
-                <div class="stat"><div class="num">5</div><div class="label" data-i18n="playlists_label">Playlists</div></div>
+                <div class="stat"><div class="num">47</div><div class="label">Watch Hours</div></div>
+                <div class="stat"><div class="num">23</div><div class="label">Favorites</div></div>
+                <div class="stat"><div class="num">5</div><div class="label">Playlists</div></div>
             </div>
             <div class="profile-menu" id="profileMenu">
-                <div class="menu-item" data-action="continue"><i class="fas fa-clock"></i> <span data-i18n="continue_watching">Continue Watching</span> <span class="count">4</span></div>
-                <div class="menu-item" data-action="favorites"><i class="fas fa-heart"></i> <span data-i18n="favorites_label">Favorites</span> <span class="count">23</span></div>
-                <div class="menu-item" data-action="playlists"><i class="fas fa-list"></i> <span data-i18n="playlists_label">Playlists</span> <span class="count">5</span></div>
-                <div class="menu-item" data-action="downloads"><i class="fas fa-download"></i> <span data-i18n="downloads_label">Downloads</span> <span class="count">0</span></div>
-                <div class="menu-item" data-action="notifications"><i class="fas fa-bell"></i> <span data-i18n="notifications_label">Notifications</span> <span class="count">5</span></div>
-                <div class="menu-item" data-action="history"><i class="fas fa-history"></i> <span data-i18n="activity_history">Activity History</span></div>
-                <div class="menu-item" data-action="recent"><i class="fas fa-eye"></i> <span data-i18n="recently_viewed">Recently Viewed</span></div>
-                <div class="menu-item" data-action="devices"><i class="fas fa-desktop"></i> <span data-i18n="devices_label">Devices</span></div>
-                <div class="menu-item" data-action="security"><i class="fas fa-shield-alt"></i> <span data-i18n="security_center">Security Center</span></div>
-                <div class="menu-item" data-action="signout" style="color:#fa4b6e;"><i class="fas fa-sign-out-alt"></i> <span data-i18n="sign_out">Sign Out</span></div>
+                <div class="menu-item" data-action="continue"><i class="fas fa-clock"></i> Continue Watching <span class="count">4</span></div>
+                <div class="menu-item" data-action="favorites"><i class="fas fa-heart"></i> Favorites <span class="count">23</span></div>
+                <div class="menu-item" data-action="playlists"><i class="fas fa-list"></i> Playlists <span class="count">5</span></div>
+                <div class="menu-item" data-action="downloads"><i class="fas fa-download"></i> Downloads <span class="count">0</span></div>
+                <div class="menu-item" data-action="notifications"><i class="fas fa-bell"></i> Notifications <span class="count">5</span></div>
+                <div class="menu-item" data-action="history"><i class="fas fa-history"></i> Activity History</div>
+                <div class="menu-item" data-action="recent"><i class="fas fa-eye"></i> Recently Viewed</div>
+                <div class="menu-item" data-action="devices"><i class="fas fa-desktop"></i> Devices</div>
+                <div class="menu-item" data-action="security"><i class="fas fa-shield-alt"></i> Security Center</div>
+                <div class="menu-item" data-action="signout" style="color:#fa4b6e;"><i class="fas fa-sign-out-alt"></i> Sign Out</div>
             </div>
         </div>
     </div>
@@ -3344,546 +3503,6 @@
     <script>
         (function() {
             'use strict';
-
-            // ================================================================
-            //  I18N – LANGUAGE TRANSLATIONS
-            // ================================================================
-            const translations = {
-                en: {
-                    settings: 'Settings',
-                    settings_title: 'Settings',
-                    general: 'General',
-                    general_desc: 'Language, region, timezone',
-                    appearance: 'Appearance',
-                    appearance_desc: 'Dark mode, themes, accent color',
-                    player: 'Player',
-                    player_desc: 'Quality, autoplay, subtitles',
-                    notifications: 'Notifications',
-                    notifications_desc: 'Push, email, reminders',
-                    privacy: 'Privacy',
-                    privacy_desc: 'Profile visibility, history',
-                    security: 'Security',
-                    security_desc: 'Password, 2FA, sessions',
-                    downloads: 'Downloads',
-                    downloads_desc: 'Storage, offline mode',
-                    accessibility: 'Accessibility',
-                    accessibility_desc: 'High contrast, font scaling',
-                    advanced: 'Advanced',
-                    advanced_desc: 'Performance, experiments',
-                    watch_hours: 'Watch Hours',
-                    favorites_label: 'Favorites',
-                    playlists_label: 'Playlists',
-                    continue_watching: 'Continue Watching',
-                    downloads_label: 'Downloads',
-                    notifications_label: 'Notifications',
-                    activity_history: 'Activity History',
-                    recently_viewed: 'Recently Viewed',
-                    devices_label: 'Devices',
-                    security_center: 'Security Center',
-                    sign_out: 'Sign Out',
-                    ultra_guide: 'ULTRA GUIDE',
-                    category: 'Category',
-                    genre: 'Genre',
-                    add_url_title: 'Add Video by URL',
-                    my_profile: 'My Profile',
-                    live: 'LIVE',
-                    channels: 'Channels',
-                    movies: 'Movies',
-                    videos: 'Videos',
-                    results: 'Results',
-                    history: 'History',
-                    // Settings detail labels
-                    language: 'Language',
-                    region: 'Region',
-                    timezone: 'Timezone',
-                    dark_mode: 'Dark Mode',
-                    theme_color: 'Theme Color',
-                    accent_color: 'Accent Color',
-                    default_quality: 'Default Quality',
-                    autoplay: 'Autoplay',
-                    subtitles: 'Subtitles',
-                    push_notifications: 'Push Notifications',
-                    email_notifications: 'Email Notifications',
-                    reminders: 'Reminders',
-                    profile_visibility: 'Profile Visibility',
-                    watch_history: 'Watch History',
-                    change_password: 'Change Password',
-                    two_factor_auth: 'Two-Factor Authentication',
-                    active_sessions: 'Active Sessions',
-                    storage_used: 'Storage Used',
-                    offline_mode: 'Offline Mode',
-                    high_contrast: 'High Contrast',
-                    font_scaling: 'Font Scaling',
-                    color_blind_mode: 'Color Blind Mode',
-                    reduced_motion: 'Reduced Motion',
-                    performance_mode: 'Performance Mode',
-                    experimental_features: 'Experimental Features',
-                    reset_all: 'Reset All Settings',
-                    public: 'Public',
-                    private: 'Private',
-                    friends_only: 'Friends Only',
-                    // Toasts
-                    language_updated: 'Language updated',
-                    timezone_updated: 'Timezone updated',
-                    region_updated: 'Region updated',
-                },
-                es: {
-                    settings: 'Configuración',
-                    settings_title: 'Configuración',
-                    general: 'General',
-                    general_desc: 'Idioma, región, zona horaria',
-                    appearance: 'Apariencia',
-                    appearance_desc: 'Modo oscuro, temas, color de acento',
-                    player: 'Reproductor',
-                    player_desc: 'Calidad, reproducción automática, subtítulos',
-                    notifications: 'Notificaciones',
-                    notifications_desc: 'Push, correo, recordatorios',
-                    privacy: 'Privacidad',
-                    privacy_desc: 'Visibilidad del perfil, historial',
-                    security: 'Seguridad',
-                    security_desc: 'Contraseña, 2FA, sesiones',
-                    downloads: 'Descargas',
-                    downloads_desc: 'Almacenamiento, modo offline',
-                    accessibility: 'Accesibilidad',
-                    accessibility_desc: 'Alto contraste, escala de fuente',
-                    advanced: 'Avanzado',
-                    advanced_desc: 'Rendimiento, experimentos',
-                    watch_hours: 'Horas de visualización',
-                    favorites_label: 'Favoritos',
-                    playlists_label: 'Listas de reproducción',
-                    continue_watching: 'Continuar viendo',
-                    downloads_label: 'Descargas',
-                    notifications_label: 'Notificaciones',
-                    activity_history: 'Historial de actividad',
-                    recently_viewed: 'Visto recientemente',
-                    devices_label: 'Dispositivos',
-                    security_center: 'Centro de seguridad',
-                    sign_out: 'Cerrar sesión',
-                    ultra_guide: 'GUÍA ULTRA',
-                    category: 'Categoría',
-                    genre: 'Género',
-                    add_url_title: 'Añadir vídeo por URL',
-                    my_profile: 'Mi perfil',
-                    live: 'EN VIVO',
-                    channels: 'Canales',
-                    movies: 'Películas',
-                    videos: 'Vídeos',
-                    results: 'Resultados',
-                    history: 'Historial',
-                    language: 'Idioma',
-                    region: 'Región',
-                    timezone: 'Zona horaria',
-                    dark_mode: 'Modo oscuro',
-                    theme_color: 'Color de tema',
-                    accent_color: 'Color de acento',
-                    default_quality: 'Calidad predeterminada',
-                    autoplay: 'Reproducción automática',
-                    subtitles: 'Subtítulos',
-                    push_notifications: 'Notificaciones push',
-                    email_notifications: 'Notificaciones por correo',
-                    reminders: 'Recordatorios',
-                    profile_visibility: 'Visibilidad del perfil',
-                    watch_history: 'Historial de visualización',
-                    change_password: 'Cambiar contraseña',
-                    two_factor_auth: 'Autenticación de dos factores',
-                    active_sessions: 'Sesiones activas',
-                    storage_used: 'Almacenamiento usado',
-                    offline_mode: 'Modo offline',
-                    high_contrast: 'Alto contraste',
-                    font_scaling: 'Escala de fuente',
-                    color_blind_mode: 'Modo daltónico',
-                    reduced_motion: 'Movimiento reducido',
-                    performance_mode: 'Modo rendimiento',
-                    experimental_features: 'Funciones experimentales',
-                    reset_all: 'Restablecer todos los ajustes',
-                    public: 'Público',
-                    private: 'Privado',
-                    friends_only: 'Solo amigos',
-                    language_updated: 'Idioma actualizado',
-                    timezone_updated: 'Zona horaria actualizada',
-                    region_updated: 'Región actualizada',
-                },
-                fr: {
-                    settings: 'Paramètres',
-                    settings_title: 'Paramètres',
-                    general: 'Général',
-                    general_desc: 'Langue, région, fuseau horaire',
-                    appearance: 'Apparence',
-                    appearance_desc: 'Mode sombre, thèmes, couleur d\'accent',
-                    player: 'Lecteur',
-                    player_desc: 'Qualité, lecture automatique, sous-titres',
-                    notifications: 'Notifications',
-                    notifications_desc: 'Push, e-mail, rappels',
-                    privacy: 'Confidentialité',
-                    privacy_desc: 'Visibilité du profil, historique',
-                    security: 'Sécurité',
-                    security_desc: 'Mot de passe, 2FA, sessions',
-                    downloads: 'Téléchargements',
-                    downloads_desc: 'Stockage, mode hors ligne',
-                    accessibility: 'Accessibilité',
-                    accessibility_desc: 'Contraste élevé, mise à l\'échelle des polices',
-                    advanced: 'Avancé',
-                    advanced_desc: 'Performance, expériences',
-                    watch_hours: 'Heures de visionnage',
-                    favorites_label: 'Favoris',
-                    playlists_label: 'Listes de lecture',
-                    continue_watching: 'Continuer à regarder',
-                    downloads_label: 'Téléchargements',
-                    notifications_label: 'Notifications',
-                    activity_history: 'Historique d\'activité',
-                    recently_viewed: 'Récemment consulté',
-                    devices_label: 'Appareils',
-                    security_center: 'Centre de sécurité',
-                    sign_out: 'Déconnexion',
-                    ultra_guide: 'GUIDE ULTRA',
-                    category: 'Catégorie',
-                    genre: 'Genre',
-                    add_url_title: 'Ajouter une vidéo par URL',
-                    my_profile: 'Mon profil',
-                    live: 'EN DIRECT',
-                    channels: 'Chaînes',
-                    movies: 'Films',
-                    videos: 'Vidéos',
-                    results: 'Résultats',
-                    history: 'Historique',
-                    language: 'Langue',
-                    region: 'Région',
-                    timezone: 'Fuseau horaire',
-                    dark_mode: 'Mode sombre',
-                    theme_color: 'Couleur du thème',
-                    accent_color: 'Couleur d\'accent',
-                    default_quality: 'Qualité par défaut',
-                    autoplay: 'Lecture automatique',
-                    subtitles: 'Sous-titres',
-                    push_notifications: 'Notifications push',
-                    email_notifications: 'Notifications par e-mail',
-                    reminders: 'Rappels',
-                    profile_visibility: 'Visibilité du profil',
-                    watch_history: 'Historique de visionnage',
-                    change_password: 'Changer le mot de passe',
-                    two_factor_auth: 'Authentification à deux facteurs',
-                    active_sessions: 'Sessions actives',
-                    storage_used: 'Stockage utilisé',
-                    offline_mode: 'Mode hors ligne',
-                    high_contrast: 'Contraste élevé',
-                    font_scaling: 'Mise à l\'échelle des polices',
-                    color_blind_mode: 'Mode daltonien',
-                    reduced_motion: 'Mouvement réduit',
-                    performance_mode: 'Mode performance',
-                    experimental_features: 'Fonctionnalités expérimentales',
-                    reset_all: 'Réinitialiser tous les paramètres',
-                    public: 'Public',
-                    private: 'Privé',
-                    friends_only: 'Amis uniquement',
-                    language_updated: 'Langue mise à jour',
-                    timezone_updated: 'Fuseau horaire mis à jour',
-                    region_updated: 'Région mise à jour',
-                },
-                de: {
-                    settings: 'Einstellungen',
-                    settings_title: 'Einstellungen',
-                    general: 'Allgemein',
-                    general_desc: 'Sprache, Region, Zeitzone',
-                    appearance: 'Erscheinungsbild',
-                    appearance_desc: 'Dunkelmodus, Themen, Akzentfarbe',
-                    player: 'Player',
-                    player_desc: 'Qualität, Autoplay, Untertitel',
-                    notifications: 'Benachrichtigungen',
-                    notifications_desc: 'Push, E-Mail, Erinnerungen',
-                    privacy: 'Datenschutz',
-                    privacy_desc: 'Profilsichtbarkeit, Verlauf',
-                    security: 'Sicherheit',
-                    security_desc: 'Passwort, 2FA, Sitzungen',
-                    downloads: 'Downloads',
-                    downloads_desc: 'Speicher, Offline-Modus',
-                    accessibility: 'Barrierefreiheit',
-                    accessibility_desc: 'Hoher Kontrast, Schriftgröße',
-                    advanced: 'Erweitert',
-                    advanced_desc: 'Leistung, Experimente',
-                    watch_hours: 'Sehstunden',
-                    favorites_label: 'Favoriten',
-                    playlists_label: 'Playlists',
-                    continue_watching: 'Weiterschauen',
-                    downloads_label: 'Downloads',
-                    notifications_label: 'Benachrichtigungen',
-                    activity_history: 'Aktivitätsverlauf',
-                    recently_viewed: 'Zuletzt angesehen',
-                    devices_label: 'Geräte',
-                    security_center: 'Sicherheitscenter',
-                    sign_out: 'Abmelden',
-                    ultra_guide: 'ULTRA-GUIDE',
-                    category: 'Kategorie',
-                    genre: 'Genre',
-                    add_url_title: 'Video per URL hinzufügen',
-                    my_profile: 'Mein Profil',
-                    live: 'LIVE',
-                    channels: 'Kanäle',
-                    movies: 'Filme',
-                    videos: 'Videos',
-                    results: 'Ergebnisse',
-                    history: 'Verlauf',
-                    language: 'Sprache',
-                    region: 'Region',
-                    timezone: 'Zeitzone',
-                    dark_mode: 'Dunkelmodus',
-                    theme_color: 'Themenfarbe',
-                    accent_color: 'Akzentfarbe',
-                    default_quality: 'Standardqualität',
-                    autoplay: 'Autoplay',
-                    subtitles: 'Untertitel',
-                    push_notifications: 'Push-Benachrichtigungen',
-                    email_notifications: 'E-Mail-Benachrichtigungen',
-                    reminders: 'Erinnerungen',
-                    profile_visibility: 'Profilsichtbarkeit',
-                    watch_history: 'Verlauf ansehen',
-                    change_password: 'Passwort ändern',
-                    two_factor_auth: 'Zwei-Faktor-Authentifizierung',
-                    active_sessions: 'Aktive Sitzungen',
-                    storage_used: 'Speicherplatz verwendet',
-                    offline_mode: 'Offline-Modus',
-                    high_contrast: 'Hoher Kontrast',
-                    font_scaling: 'Schriftgröße',
-                    color_blind_mode: 'Farbblind-Modus',
-                    reduced_motion: 'Reduzierte Bewegung',
-                    performance_mode: 'Leistungsmodus',
-                    experimental_features: 'Experimentelle Funktionen',
-                    reset_all: 'Alle Einstellungen zurücksetzen',
-                    public: 'Öffentlich',
-                    private: 'Privat',
-                    friends_only: 'Nur Freunde',
-                    language_updated: 'Sprache aktualisiert',
-                    timezone_updated: 'Zeitzone aktualisiert',
-                    region_updated: 'Region aktualisiert',
-                },
-                hi: {
-                    settings: 'सेटिंग्स',
-                    settings_title: 'सेटिंग्स',
-                    general: 'सामान्य',
-                    general_desc: 'भाषा, क्षेत्र, समय क्षेत्र',
-                    appearance: 'उपस्थिति',
-                    appearance_desc: 'डार्क मोड, थीम, एक्सेंट रंग',
-                    player: 'प्लेयर',
-                    player_desc: 'गुणवत्ता, ऑटोप्ले, उपशीर्षक',
-                    notifications: 'सूचनाएँ',
-                    notifications_desc: 'पुश, ईमेल, रिमाइंडर',
-                    privacy: 'गोपनीयता',
-                    privacy_desc: 'प्रोफ़ाइल दृश्यता, इतिहास',
-                    security: 'सुरक्षा',
-                    security_desc: 'पासवर्ड, 2FA, सत्र',
-                    downloads: 'डाउनलोड',
-                    downloads_desc: 'स्टोरेज, ऑफ़लाइन मोड',
-                    accessibility: 'पहुँच',
-                    accessibility_desc: 'उच्च कंट्रास्ट, फ़ॉन्ट स्केलिंग',
-                    advanced: 'उन्नत',
-                    advanced_desc: 'प्रदर्शन, प्रयोग',
-                    watch_hours: 'देखने के घंटे',
-                    favorites_label: 'पसंदीदा',
-                    playlists_label: 'प्लेलिस्ट',
-                    continue_watching: 'देखना जारी रखें',
-                    downloads_label: 'डाउनलोड',
-                    notifications_label: 'सूचनाएँ',
-                    activity_history: 'गतिविधि इतिहास',
-                    recently_viewed: 'हाल ही में देखा',
-                    devices_label: 'उपकरण',
-                    security_center: 'सुरक्षा केंद्र',
-                    sign_out: 'साइन आउट',
-                    ultra_guide: 'अल्ट्रा गाइड',
-                    category: 'श्रेणी',
-                    genre: 'शैली',
-                    add_url_title: 'URL द्वारा वीडियो जोड़ें',
-                    my_profile: 'मेरा प्रोफ़ाइल',
-                    live: 'लाइव',
-                    channels: 'चैनल',
-                    movies: 'फिल्में',
-                    videos: 'वीडियो',
-                    results: 'परिणाम',
-                    history: 'इतिहास',
-                    language: 'भाषा',
-                    region: 'क्षेत्र',
-                    timezone: 'समय क्षेत्र',
-                    dark_mode: 'डार्क मोड',
-                    theme_color: 'थीम रंग',
-                    accent_color: 'एक्सेंट रंग',
-                    default_quality: 'डिफ़ॉल्ट गुणवत्ता',
-                    autoplay: 'ऑटोप्ले',
-                    subtitles: 'उपशीर्षक',
-                    push_notifications: 'पुश सूचनाएँ',
-                    email_notifications: 'ईमेल सूचनाएँ',
-                    reminders: 'रिमाइंडर',
-                    profile_visibility: 'प्रोफ़ाइल दृश्यता',
-                    watch_history: 'देखने का इतिहास',
-                    change_password: 'पासवर्ड बदलें',
-                    two_factor_auth: 'दो-कारक प्रमाणीकरण',
-                    active_sessions: 'सक्रिय सत्र',
-                    storage_used: 'उपयोग किया गया भंडारण',
-                    offline_mode: 'ऑफ़लाइन मोड',
-                    high_contrast: 'उच्च कंट्रास्ट',
-                    font_scaling: 'फ़ॉन्ट स्केलिंग',
-                    color_blind_mode: 'रंग-अंध मोड',
-                    reduced_motion: 'कम गति',
-                    performance_mode: 'प्रदर्शन मोड',
-                    experimental_features: 'प्रायोगिक सुविधाएँ',
-                    reset_all: 'सभी सेटिंग्स रीसेट करें',
-                    public: 'सार्वजनिक',
-                    private: 'निजी',
-                    friends_only: 'केवल मित्र',
-                    language_updated: 'भाषा अपडेट की गई',
-                    timezone_updated: 'समय क्षेत्र अपडेट किया गया',
-                    region_updated: 'क्षेत्र अपडेट किया गया',
-                },
-                ar: {
-                    settings: 'الإعدادات',
-                    settings_title: 'الإعدادات',
-                    general: 'عام',
-                    general_desc: 'اللغة، المنطقة، المنطقة الزمنية',
-                    appearance: 'المظهر',
-                    appearance_desc: 'الوضع المظلم، السمات، لون التمييز',
-                    player: 'المشغل',
-                    player_desc: 'الجودة، التشغيل التلقائي، الترجمة',
-                    notifications: 'الإشعارات',
-                    notifications_desc: 'دفع، بريد إلكتروني، تذكيرات',
-                    privacy: 'الخصوصية',
-                    privacy_desc: 'رؤية الملف الشخصي، السجل',
-                    security: 'الأمان',
-                    security_desc: 'كلمة المرور، المصادقة الثنائية، الجلسات',
-                    downloads: 'التنزيلات',
-                    downloads_desc: 'التخزين، وضع عدم الاتصال',
-                    accessibility: 'إمكانية الوصول',
-                    accessibility_desc: 'تباين عالٍ، تحجيم الخط',
-                    advanced: 'متقدم',
-                    advanced_desc: 'الأداء، التجارب',
-                    watch_hours: 'ساعات المشاهدة',
-                    favorites_label: 'المفضلة',
-                    playlists_label: 'قوائم التشغيل',
-                    continue_watching: 'متابعة المشاهدة',
-                    downloads_label: 'التنزيلات',
-                    notifications_label: 'الإشعارات',
-                    activity_history: 'سجل النشاط',
-                    recently_viewed: 'شوهد مؤخراً',
-                    devices_label: 'الأجهزة',
-                    security_center: 'مركز الأمان',
-                    sign_out: 'تسجيل الخروج',
-                    ultra_guide: 'الدليل الفائق',
-                    category: 'الفئة',
-                    genre: 'النوع',
-                    add_url_title: 'إضافة فيديو عبر URL',
-                    my_profile: 'ملفي الشخصي',
-                    live: 'مباشر',
-                    channels: 'القنوات',
-                    movies: 'الأفلام',
-                    videos: 'الفيديوهات',
-                    results: 'النتائج',
-                    history: 'التاريخ',
-                    language: 'اللغة',
-                    region: 'المنطقة',
-                    timezone: 'المنطقة الزمنية',
-                    dark_mode: 'الوضع المظلم',
-                    theme_color: 'لون السمة',
-                    accent_color: 'لون التمييز',
-                    default_quality: 'الجودة الافتراضية',
-                    autoplay: 'التشغيل التلقائي',
-                    subtitles: 'الترجمة',
-                    push_notifications: 'إشعارات الدفع',
-                    email_notifications: 'إشعارات البريد الإلكتروني',
-                    reminders: 'التذكيرات',
-                    profile_visibility: 'رؤية الملف الشخصي',
-                    watch_history: 'سجل المشاهدة',
-                    change_password: 'تغيير كلمة المرور',
-                    two_factor_auth: 'المصادقة الثنائية',
-                    active_sessions: 'الجلسات النشطة',
-                    storage_used: 'التخزين المستخدم',
-                    offline_mode: 'وضع عدم الاتصال',
-                    high_contrast: 'تباين عالٍ',
-                    font_scaling: 'تحجيم الخط',
-                    color_blind_mode: 'وضع عمى الألوان',
-                    reduced_motion: 'حركة مخفضة',
-                    performance_mode: 'وضع الأداء',
-                    experimental_features: 'الميزات التجريبية',
-                    reset_all: 'إعادة تعيين جميع الإعدادات',
-                    public: 'عام',
-                    private: 'خاص',
-                    friends_only: 'الأصدقاء فقط',
-                    language_updated: 'تم تحديث اللغة',
-                    timezone_updated: 'تم تحديث المنطقة الزمنية',
-                    region_updated: 'تم تحديث المنطقة',
-                },
-                bn: {
-                    settings: 'সেটিংস',
-                    settings_title: 'সেটিংস',
-                    general: 'সাধারণ',
-                    general_desc: 'ভাষা, অঞ্চল, সময় অঞ্চল',
-                    appearance: 'আবির্ভাব',
-                    appearance_desc: 'ডার্ক মোড, থিম, অ্যাকসেন্ট রঙ',
-                    player: 'প্লেয়ার',
-                    player_desc: 'গুণমান, অটোপ্লে, সাবটাইটেল',
-                    notifications: 'বিজ্ঞপ্তি',
-                    notifications_desc: 'পুশ, ইমেইল, রিমাইন্ডার',
-                    privacy: 'গোপনীয়তা',
-                    privacy_desc: 'প্রোফাইল দৃশ্যমানতা, ইতিহাস',
-                    security: 'নিরাপত্তা',
-                    security_desc: 'পাসওয়ার্ড, 2FA, সেশন',
-                    downloads: 'ডাউনলোড',
-                    downloads_desc: 'স্টোরেজ, অফলাইন মোড',
-                    accessibility: 'অ্যাক্সেসিবিলিটি',
-                    accessibility_desc: 'উচ্চ কনট্রাস্ট, ফন্ট স্কেলিং',
-                    advanced: 'উন্নত',
-                    advanced_desc: 'পারফরম্যান্স, পরীক্ষামূলক',
-                    watch_hours: 'দেখার ঘন্টা',
-                    favorites_label: 'পছন্দের তালিকা',
-                    playlists_label: 'প্লেলিস্ট',
-                    continue_watching: 'দেখা চালিয়ে যান',
-                    downloads_label: 'ডাউনলোড',
-                    notifications_label: 'বিজ্ঞপ্তি',
-                    activity_history: 'কার্যকলাপ ইতিহাস',
-                    recently_viewed: 'সম্প্রতি দেখা',
-                    devices_label: 'ডিভাইস',
-                    security_center: 'নিরাপত্তা কেন্দ্র',
-                    sign_out: 'সাইন আউট',
-                    ultra_guide: 'আল্ট্রা গাইড',
-                    category: 'বিভাগ',
-                    genre: 'ধরন',
-                    add_url_title: 'URL দিয়ে ভিডিও যোগ করুন',
-                    my_profile: 'আমার প্রোফাইল',
-                    live: 'লাইভ',
-                    channels: 'চ্যানেল',
-                    movies: 'সিনেমা',
-                    videos: 'ভিডিও',
-                    results: 'ফলাফল',
-                    history: 'ইতিহাস',
-                    language: 'ভাষা',
-                    region: 'অঞ্চল',
-                    timezone: 'সময় অঞ্চল',
-                    dark_mode: 'ডার্ক মোড',
-                    theme_color: 'থিম রঙ',
-                    accent_color: 'অ্যাকসেন্ট রঙ',
-                    default_quality: 'ডিফল্ট মান',
-                    autoplay: 'অটোপ্লে',
-                    subtitles: 'সাবটাইটেল',
-                    push_notifications: 'পুশ বিজ্ঞপ্তি',
-                    email_notifications: 'ইমেইল বিজ্ঞপ্তি',
-                    reminders: 'রিমাইন্ডার',
-                    profile_visibility: 'প্রোফাইল দৃশ্যমানতা',
-                    watch_history: 'দেখার ইতিহাস',
-                    change_password: 'পাসওয়ার্ড পরিবর্তন করুন',
-                    two_factor_auth: 'দ্বি-গুণক প্রমাণীকরণ',
-                    active_sessions: 'সক্রিয় সেশন',
-                    storage_used: 'ব্যবহৃত স্টোরেজ',
-                    offline_mode: 'অফলাইন মোড',
-                    high_contrast: 'উচ্চ কনট্রাস্ট',
-                    font_scaling: 'ফন্ট স্কেলিং',
-                    color_blind_mode: 'রঙ-অন্ধ মোড',
-                    reduced_motion: 'সীমিত গতি',
-                    performance_mode: 'পারফরম্যান্স মোড',
-                    experimental_features: 'পরীক্ষামূলক বৈশিষ্ট্য',
-                    reset_all: 'সব সেটিংস রিসেট করুন',
-                    public: 'সর্বজনীন',
-                    private: 'ব্যক্তিগত',
-                    friends_only: 'শুধু বন্ধুরা',
-                    language_updated: 'ভাষা আপডেট করা হয়েছে',
-                    timezone_updated: 'সময় অঞ্চল আপডেট করা হয়েছে',
-                    region_updated: 'অঞ্চল আপডেট করা হয়েছে',
-                }
-            };
 
             // ================================================================
             //  SETTINGS STATE (persisted in localStorage)
@@ -3904,16 +3523,13 @@
                 emailEnabled: true,
                 reminderEnabled: true,
                 profileVisibility: 'public',
-                watchHistory: true,
+                historyEnabled: true,
                 twoFactorAuth: false,
                 offlineMode: false,
                 highContrast: false,
                 fontScale: 1.0,
-                performanceMode: false,
+                performanceMode: true,
                 experimentalFeatures: false,
-                colorBlindMode: 'none',
-                reducedMotion: false,
-                downloads: []
             };
 
             function loadSettings() {
@@ -3934,306 +3550,27 @@
             let settings = loadSettings();
 
             // ================================================================
-            //  I18N – APPLY LANGUAGE
-            // ================================================================
-            function applyLanguage() {
-                const lang = settings.language || 'en';
-                const t = translations[lang] || translations.en;
-                // Update all elements with data-i18n attribute
-                document.querySelectorAll('[data-i18n]').forEach(el => {
-                    const key = el.dataset.i18n;
-                    if (t[key] !== undefined) {
-                        el.textContent = t[key];
-                    }
-                });
-                // Update specific IDs
-                const ids = {
-                    settingsTitle: 'settings_title',
-                    ultraGuideLabel: 'ultra_guide',
-                    tvCategoryLabel: 'category',
-                    movieGenreLabel: 'genre',
-                    ytCategoryLabel: 'category',
-                    addUrlTitle: 'add_url_title',
-                    profileTitle: 'my_profile',
-                };
-                Object.keys(ids).forEach(id => {
-                    const el = document.getElementById(id);
-                    if (el && t[ids[id]] !== undefined) {
-                        el.textContent = t[ids[id]];
-                    }
-                });
-                // Update countType (dynamic)
-                const countType = document.getElementById('countType');
-                if (countType) {
-                    const current = countType.textContent.toLowerCase();
-                    if (current.includes('channel')) countType.textContent = t.channels || 'Channels';
-                    else if (current.includes('movie')) countType.textContent = t.movies || 'Movies';
-                    else if (current.includes('video')) countType.textContent = t.videos || 'Videos';
-                    else if (current.includes('result')) countType.textContent = t.results || 'Results';
-                    else if (current.includes('history')) countType.textContent = t.history || 'History';
-                }
-                // Update live badge label
-                const liveBadge = document.querySelector('.live-count-badge');
-                if (liveBadge) {
-                    const text = liveBadge.textContent;
-                    if (text.includes('LIVE')) {
-                        liveBadge.textContent = text.replace('LIVE', t.live || 'LIVE');
-                    } else if (text.includes('MOVIES')) {
-                        liveBadge.textContent = text.replace('MOVIES', t.movies || 'MOVIES');
-                    } else if (text.includes('VIDEOS')) {
-                        liveBadge.textContent = text.replace('VIDEOS', t.videos || 'VIDEOS');
-                    }
-                }
-                // Update profile dropdown counts (static labels)
-                document.querySelectorAll('.profile-dropdown .menu-item').forEach(item => {
-                    const text = item.textContent.trim();
-                    if (text.includes('Continue Watching')) {
-                        const count = item.querySelector('.count');
-                        item.innerHTML = `<i class="fas fa-clock"></i> ${t.continue_watching} ${count ? count.outerHTML : ''}`;
-                    }
-                    // Similarly for other items… 
-                });
-                // Update toast messages (only when shown)
-                // Not needed for initial load.
-            }
-
-            // ================================================================
             //  APPLY SETTINGS (theme, dark mode, etc.)
             // ================================================================
             function applySettings() {
-                // Dark Mode
                 if (settings.darkMode) {
                     document.body.classList.remove('light-mode');
                 } else {
                     document.body.classList.add('light-mode');
                 }
-
-                // Theme / Accent Colors
                 document.documentElement.style.setProperty('--theme-color', settings.themeColor);
                 document.documentElement.style.setProperty('--accent-color', settings.accentColor);
-
-                // High Contrast
                 if (settings.highContrast) {
                     document.body.style.filter = 'contrast(1.4) brightness(1.1)';
                 } else {
                     document.body.style.filter = 'none';
                 }
-
-                // Font Scale
                 document.body.style.fontSize = (settings.fontScale * 100) + '%';
-
-                // Color Blind Mode
-                const colorBlindMap = {
-                    'none': '',
-                    'protanopia': 'hue-rotate(0deg) saturate(0.8) contrast(1.2)',
-                    'deuteranopia': 'hue-rotate(0deg) saturate(0.7) contrast(1.1)',
-                    'tritanopia': 'hue-rotate(180deg) saturate(0.9)'
-                };
-                const filter = colorBlindMap[settings.colorBlindMode] || '';
-                const currentFilter = document.body.style.filter;
-                document.body.style.filter = currentFilter + ' ' + filter;
-
-                // Reduced Motion
-                if (settings.reducedMotion) {
-                    document.body.classList.add('reduce-motion');
-                } else {
-                    document.body.classList.remove('reduce-motion');
-                }
-
-                // Apply language
-                applyLanguage();
-                // Apply timezone (clock)
-                updateClockAndDate();
             }
-
             applySettings();
 
             // ================================================================
-            //  GENERAL SETTINGS – update date and time display
-            // ================================================================
-            function applyGeneralSettings() {
-                const tz = settings.timezone || 'UTC';
-                const now = new Date();
-                const dateSpan = document.querySelector('#dateDisplay span');
-                if (dateSpan) {
-                    try {
-                        dateSpan.innerText = now.toLocaleDateString([], {
-                            weekday: 'short',
-                            month: 'short',
-                            day: 'numeric',
-                            timeZone: tz
-                        });
-                    } catch (e) {
-                        dateSpan.innerText = now.toLocaleDateString();
-                    }
-                }
-                // Update live clock with timezone
-                const clockEl = document.getElementById('liveClock');
-                if (clockEl) {
-                    try {
-                        clockEl.innerText = now.toLocaleTimeString([], {
-                            hour: '2-digit',
-                            minute: '2-digit',
-                            second: '2-digit',
-                            timeZone: tz
-                        });
-                    } catch (e) {
-                        clockEl.innerText = now.toLocaleTimeString();
-                    }
-                }
-            }
-
-            // ================================================================
-            //  NOTIFICATIONS (Push)
-            // ================================================================
-            function requestPushPermission() {
-                if (!('Notification' in window)) {
-                    showToast('⚠️ Push notifications not supported in this browser', true);
-                    return false;
-                }
-                if (Notification.permission === 'granted') {
-                    new Notification('DarkRanks ULTRA', { body: 'Push notifications enabled!' });
-                    return true;
-                } else if (Notification.permission === 'denied') {
-                    showToast('⚠️ Push permission denied', true);
-                    return false;
-                } else {
-                    Notification.requestPermission().then(perm => {
-                        if (perm === 'granted') {
-                            new Notification('DarkRanks ULTRA', { body: 'Push notifications enabled!' });
-                            showToast('✅ Push notifications enabled');
-                        } else {
-                            showToast('⚠️ Push permission not granted', true);
-                            settings.pushEnabled = false;
-                            saveSettings(settings);
-                            const toggles = document.querySelectorAll('.toggle-switch[data-key="pushEnabled"]');
-                            toggles.forEach(t => t.classList.remove('active'));
-                        }
-                    });
-                    return false;
-                }
-            }
-
-            // ================================================================
-            //  DOWNLOADS – IndexedDB
-            // ================================================================
-            const DB_NAME = 'DarkRanksDownloads';
-            const STORE_NAME = 'videos';
-
-            function openDB() {
-                return new Promise((resolve, reject) => {
-                    const request = indexedDB.open(DB_NAME, 1);
-                    request.onupgradeneeded = (e) => {
-                        const db = e.target.result;
-                        if (!db.objectStoreNames.contains(STORE_NAME)) {
-                            db.createObjectStore(STORE_NAME, { keyPath: 'id' });
-                        }
-                    };
-                    request.onsuccess = (e) => resolve(e.target.result);
-                    request.onerror = (e) => reject(e.target.error);
-                });
-            }
-
-            async function getDownloads() {
-                const db = await openDB();
-                return new Promise((resolve, reject) => {
-                    const tx = db.transaction(STORE_NAME, 'readonly');
-                    const store = tx.objectStore(STORE_NAME);
-                    const all = store.getAll();
-                    all.onsuccess = () => resolve(all.result);
-                    all.onerror = () => reject(all.error);
-                });
-            }
-
-            async function addDownload(item) {
-                const db = await openDB();
-                return new Promise((resolve, reject) => {
-                    const tx = db.transaction(STORE_NAME, 'readwrite');
-                    const store = tx.objectStore(STORE_NAME);
-                    item.id = item.id || 'dl_' + Date.now();
-                    item.size = item.size || 0;
-                    item.date = new Date().toISOString();
-                    const request = store.put(item);
-                    request.onsuccess = () => resolve(item);
-                    request.onerror = () => reject(request.error);
-                });
-            }
-
-            async function removeDownload(id) {
-                const db = await openDB();
-                return new Promise((resolve, reject) => {
-                    const tx = db.transaction(STORE_NAME, 'readwrite');
-                    const store = tx.objectStore(STORE_NAME);
-                    const request = store.delete(id);
-                    request.onsuccess = () => resolve();
-                    request.onerror = () => reject(request.error);
-                });
-            }
-
-            async function getTotalDownloadSize() {
-                const items = await getDownloads();
-                return items.reduce((sum, item) => sum + (item.size || 0), 0);
-            }
-
-            function formatBytes(bytes) {
-                if (bytes === 0) return '0 Bytes';
-                const k = 1024;
-                const sizes = ['Bytes', 'KB', 'MB', 'GB'];
-                const i = Math.floor(Math.log(bytes) / Math.log(k));
-                return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
-            }
-
-            async function renderDownloadList() {
-                const container = document.getElementById('downloadList');
-                if (!container) return;
-                const items = await getDownloads();
-                if (items.length === 0) {
-                    container.innerHTML = '<div style="color:#9aa8b9;font-size:13px;padding:10px 0;">No downloads yet</div>';
-                    return;
-                }
-                let html = '';
-                for (const item of items) {
-                    html += `
-                        <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.05);">
-                            <div style="display:flex;align-items:center;gap:10px;">
-                                <img src="${item.thumbnail || 'https://via.placeholder.com/40'}" style="width:40px;height:40px;border-radius:6px;object-fit:cover;">
-                                <div>
-                                    <div style="font-size:13px;font-weight:500;">${item.title}</div>
-                                    <div style="font-size:11px;color:#9aa8b9;">${item.type} · ${formatBytes(item.size || 0)}</div>
-                                </div>
-                            </div>
-                            <button class="btn-action danger" data-dl-id="${item.id}" style="padding:4px 12px;font-size:12px;">Delete</button>
-                        </div>
-                    `;
-                }
-                container.innerHTML = html;
-                container.querySelectorAll('[data-dl-id]').forEach(btn => {
-                    btn.addEventListener('click', async function() {
-                        const id = this.dataset.dlId;
-                        await removeDownload(id);
-                        renderDownloadList();
-                        updateDownloadsInfo();
-                        showToast('🗑️ Removed from downloads');
-                    });
-                });
-                updateDownloadsInfo();
-            }
-
-            async function updateDownloadsInfo() {
-                const totalSize = await getTotalDownloadSize();
-                const storageField = document.querySelector('#detailBody .setting-row .session-item');
-                if (storageField) {
-                    storageField.textContent = `${formatBytes(totalSize)} / 32 GB`;
-                }
-                const dlCount = document.querySelector('.profile-dropdown .menu-item .count');
-                if (dlCount) {
-                    const items = await getDownloads();
-                    dlCount.textContent = items.length;
-                }
-            }
-
-            // ================================================================
-            //  SETTINGS DETAIL RENDERER (extended)
+            //  SETTINGS DETAIL RENDERER
             // ================================================================
             const detailOverlay = document.getElementById('settingsDetailOverlay');
             const detailBody = document.getElementById('detailBody');
@@ -4244,9 +3581,9 @@
                 const configs = {
                     general: {
                         icon: 'fa-globe',
-                        label: 'general',
+                        label: 'General',
                         fields: [
-                            { type: 'select', key: 'language', label: 'language', options: [
+                            { type: 'select', key: 'language', label: 'Language', options: [
                                     ['en', 'English'],
                                     ['es', 'Español'],
                                     ['fr', 'Français'],
@@ -4255,7 +3592,7 @@
                                     ['ar', 'العربية'],
                                     ['bn', 'বাংলা']
                                 ] },
-                            { type: 'select', key: 'region', label: 'region', options: [
+                            { type: 'select', key: 'region', label: 'Region', options: [
                                     ['US', 'United States'],
                                     ['UK', 'United Kingdom'],
                                     ['EU', 'Europe'],
@@ -4264,7 +3601,7 @@
                                     ['AU', 'Australia'],
                                     ['CA', 'Canada']
                                 ] },
-                            { type: 'select', key: 'timezone', label: 'timezone', options: [
+                            { type: 'select', key: 'timezone', label: 'Timezone', options: [
                                     ['UTC', 'UTC'],
                                     ['EST', 'EST'],
                                     ['CST', 'CST'],
@@ -4279,91 +3616,83 @@
                     },
                     appearance: {
                         icon: 'fa-palette',
-                        label: 'appearance',
+                        label: 'Appearance',
                         fields: [
-                            { type: 'toggle', key: 'darkMode', label: 'dark_mode', sub: 'Enable dark theme' },
-                            { type: 'color', key: 'themeColor', label: 'theme_color', sub: 'Primary accent color' },
-                            { type: 'color', key: 'accentColor', label: 'accent_color', sub: 'Secondary accent color' },
+                            { type: 'toggle', key: 'darkMode', label: 'Dark Mode', sub: 'Enable dark theme' },
+                            { type: 'color', key: 'themeColor', label: 'Theme Color', sub: 'Primary accent color' },
+                            { type: 'color', key: 'accentColor', label: 'Accent Color', sub: 'Secondary accent color' },
                         ]
                     },
                     player: {
                         icon: 'fa-play-circle',
-                        label: 'player',
+                        label: 'Player',
                         fields: [
-                            { type: 'select', key: 'defaultQuality', label: 'default_quality', options: [
+                            { type: 'select', key: 'defaultQuality', label: 'Default Quality', options: [
                                     ['auto', 'Auto'],
                                     ['144', '144p'],
                                     ['240', '240p'],
                                     ['360', '360p'],
                                     ['480', '480p'],
                                     ['720', '720p'],
-                                    ['1080', '1080p'],
-                                    ['2160', '4K']
+                                    ['1080', '1080p']
                                 ] },
-                            { type: 'toggle', key: 'autoplay', label: 'autoplay', sub: 'Automatically play next item' },
-                            { type: 'toggle', key: 'subtitles', label: 'subtitles', sub: 'Show subtitles when available' },
+                            { type: 'toggle', key: 'autoplay', label: 'Autoplay', sub: 'Automatically play next item' },
+                            { type: 'toggle', key: 'subtitles', label: 'Subtitles', sub: 'Show subtitles when available' },
                         ]
                     },
                     notifications: {
                         icon: 'fa-bell',
-                        label: 'notifications',
+                        label: 'Notifications',
                         fields: [
-                            { type: 'toggle', key: 'pushEnabled', label: 'push_notifications', sub: 'Receive push alerts' },
-                            { type: 'toggle', key: 'emailEnabled', label: 'email_notifications', sub: 'Receive email updates' },
-                            { type: 'toggle', key: 'reminderEnabled', label: 'reminders', sub: 'Get reminded about new content' },
+                            { type: 'toggle', key: 'pushEnabled', label: 'Push Notifications', sub: 'Receive push alerts' },
+                            { type: 'toggle', key: 'emailEnabled', label: 'Email Notifications', sub: 'Receive email updates' },
+                            { type: 'toggle', key: 'reminderEnabled', label: 'Reminders', sub: 'Get reminded about new content' },
                         ]
                     },
                     privacy: {
                         icon: 'fa-lock',
-                        label: 'privacy',
+                        label: 'Privacy',
                         fields: [
-                            { type: 'select', key: 'profileVisibility', label: 'profile_visibility', options: [
-                                    ['public', 'public'],
-                                    ['private', 'private'],
-                                    ['friends', 'friends_only']
+                            { type: 'select', key: 'profileVisibility', label: 'Profile Visibility', options: [
+                                    ['public', 'Public'],
+                                    ['private', 'Private'],
+                                    ['friends', 'Friends Only']
                                 ] },
-                            { type: 'toggle', key: 'watchHistory', label: 'watch_history', sub: 'Save your watch history' },
+                            { type: 'toggle', key: 'historyEnabled', label: 'Watch History', sub: 'Save your watch history' },
                         ]
                     },
                     security: {
                         icon: 'fa-shield-alt',
-                        label: 'security',
+                        label: 'Security',
                         fields: [
-                            { type: 'button', key: 'changePassword', label: 'change_password', sub: 'Update your login password', action: 'changePassword' },
-                            { type: 'toggle', key: 'twoFactorAuth', label: 'two_factor_auth', sub: 'Extra security layer' },
-                            { type: 'info', key: 'sessions', label: 'active_sessions', sub: 'Devices currently logged in', value: 'Chrome (current) · Firefox · Mobile' },
+                            { type: 'button', key: 'changePassword', label: 'Change Password', sub: 'Update your login password', action: 'changePassword' },
+                            { type: 'toggle', key: 'twoFactorAuth', label: 'Two-Factor Authentication', sub: 'Extra security layer' },
+                            { type: 'info', key: 'sessions', label: 'Active Sessions', sub: 'Devices currently logged in', value: 'Chrome (current) · Firefox · Mobile' },
                         ]
                     },
                     downloads: {
                         icon: 'fa-download',
-                        label: 'downloads',
+                        label: 'Downloads',
                         fields: [
-                            { type: 'info', key: 'storage', label: 'storage_used', sub: 'Total space consumed by downloads', value: '0 GB / 32 GB' },
-                            { type: 'toggle', key: 'offlineMode', label: 'offline_mode', sub: 'Allow downloads for offline viewing' },
+                            { type: 'info', key: 'storage', label: 'Storage Used', sub: 'Total space consumed by downloads', value: '2.4 GB / 32 GB' },
+                            { type: 'toggle', key: 'offlineMode', label: 'Offline Mode', sub: 'Allow downloads for offline viewing' },
                         ]
                     },
                     accessibility: {
                         icon: 'fa-universal-access',
-                        label: 'accessibility',
+                        label: 'Accessibility',
                         fields: [
-                            { type: 'toggle', key: 'highContrast', label: 'high_contrast', sub: 'Increase contrast for better visibility' },
-                            { type: 'range', key: 'fontScale', label: 'font_scaling', min: 0.8, max: 1.6, step: 0.05, unit: 'x' },
-                            { type: 'select', key: 'colorBlindMode', label: 'color_blind_mode', options: [
-                                    ['none', 'None'],
-                                    ['protanopia', 'Protanopia'],
-                                    ['deuteranopia', 'Deuteranopia'],
-                                    ['tritanopia', 'Tritanopia']
-                                ] },
-                            { type: 'toggle', key: 'reducedMotion', label: 'reduced_motion', sub: 'Disable animations and transitions' },
+                            { type: 'toggle', key: 'highContrast', label: 'High Contrast', sub: 'Increase contrast for better visibility' },
+                            { type: 'range', key: 'fontScale', label: 'Font Scaling', min: 0.8, max: 1.6, step: 0.05, unit: 'x' },
                         ]
                     },
                     advanced: {
                         icon: 'fa-flask',
-                        label: 'advanced',
+                        label: 'Advanced',
                         fields: [
-                            { type: 'toggle', key: 'performanceMode', label: 'performance_mode', sub: 'Optimize for speed (may reduce quality)' },
-                            { type: 'toggle', key: 'experimentalFeatures', label: 'experimental_features', sub: 'Early access to new features' },
-                            { type: 'button', key: 'resetAll', label: 'reset_all', sub: 'Restore default settings', action: 'resetAll', danger: true },
+                            { type: 'toggle', key: 'performanceMode', label: 'Performance Mode', sub: 'Optimize for speed (may reduce quality)' },
+                            { type: 'toggle', key: 'experimentalFeatures', label: 'Experimental Features', sub: 'Early access to new features' },
+                            { type: 'button', key: 'resetAll', label: 'Reset All Settings', sub: 'Restore default settings', action: 'resetAll', danger: true },
                         ]
                     }
                 };
@@ -4371,21 +3700,16 @@
                 const config = configs[settingKey];
                 if (!config) return;
 
-                const t = translations[settings.language] || translations.en;
-                const titleKey = config.label;
-                detailTitle.innerHTML = `<i class="fas ${config.icon}"></i> <span>${t[titleKey] || titleKey}</span>`;
+                detailTitle.innerHTML = `<i class="fas ${config.icon}"></i> <span>${config.label}</span>`;
                 detailBody.innerHTML = '';
 
                 config.fields.forEach(field => {
                     const row = document.createElement('div');
                     row.className = 'setting-row';
 
-                    const labelKey = field.label;
-                    const labelText = t[labelKey] || labelKey;
-                    const subText = field.sub ? field.sub : '';
                     const labelDiv = document.createElement('div');
                     labelDiv.className = 'label';
-                    labelDiv.innerHTML = `${labelText}${subText ? `<span class="sub">${subText}</span>` : ''}`;
+                    labelDiv.innerHTML = `${field.label}${field.sub ? `<span class="sub">${field.sub}</span>` : ''}`;
 
                     const controlDiv = document.createElement('div');
                     controlDiv.className = 'control';
@@ -4395,10 +3719,8 @@
                     switch (field.type) {
                         case 'select': {
                             const val = settings[field.key] || field.options[0][0];
-                            let opts = field.options.map(([k, v]) => {
-                                const display = (k === 'public' || k === 'private' || k === 'friends_only') ? t[k] || v : v;
-                                return `<option value="${k}" ${k===val?'selected':''}>${display}</option>`;
-                            }).join('');
+                            let opts = field.options.map(([k, v]) =>
+                                `<option value="${k}" ${k===val?'selected':''}>${v}</option>`).join('');
                             controlHtml = `<select data-key="${field.key}" class="setting-select">${opts}</select>`;
                             break;
                         }
@@ -4426,8 +3748,7 @@
                         }
                         case 'button': {
                             const danger = field.danger ? 'danger' : '';
-                            const btnLabel = t[field.key] || field.label;
-                            controlHtml = `<button class="btn-action ${danger}" data-action="${field.action}" data-key="${field.key}">${btnLabel}</button>`;
+                            controlHtml = `<button class="btn-action ${danger}" data-action="${field.action}" data-key="${field.key}">${field.label}</button>`;
                             break;
                         }
                         case 'info': {
@@ -4452,17 +3773,7 @@
                             settings[key] = e.target.value;
                             saveSettings(settings);
                             applySettings();
-                            applyGeneralSettings();
-                            // Show toast in current language
-                            const tToast = translations[settings.language] || translations.en;
-                            let msg = '';
-                            if (key === 'language') msg = tToast.language_updated || 'Language updated';
-                            else if (key === 'timezone') msg = tToast.timezone_updated || 'Timezone updated';
-                            else if (key === 'region') msg = tToast.region_updated || 'Region updated';
-                            else msg = `${key} updated`;
-                            showToast(`✅ ${msg}`);
-                            // Re-render detail to refresh labels
-                            openDetail(settingKey);
+                            showToast(`✅ ${key} updated to ${e.target.value}`);
                         });
                     }
 
@@ -4476,53 +3787,9 @@
                             toggleEl.classList.toggle('active', newVal);
                             saveSettings(settings);
                             applySettings();
-
-                            // Specific toggles
-                            if (key === 'subtitles') {
-                                showToast(newVal ? 'Subtitles enabled (no tracks available)' : 'Subtitles disabled');
-                            }
-                            if (key === 'pushEnabled') {
-                                if (newVal) {
-                                    requestPushPermission();
-                                } else {
-                                    showToast('Push notifications disabled');
-                                }
-                            }
-                            if (key === 'emailEnabled' || key === 'reminderEnabled') {
-                                showToast(`${key} ${newVal ? 'enabled' : 'disabled'}`);
-                            }
-                            if (key === 'watchHistory') {
-                                if (!newVal) {
-                                    localStorage.removeItem('recently_watched_channels');
-                                    localStorage.removeItem('youtube_watch_history');
-                                    localStorage.removeItem('movie_progress');
-                                    recentlyWatched = [];
-                                    youtubeWatchHistory = [];
-                                    movieProgress = {};
-                                    showToast('Watch history cleared');
-                                } else {
-                                    showToast('Watch history enabled');
-                                }
-                            }
-                            if (key === 'twoFactorAuth') {
-                                showToast(newVal ? 'Two‑factor authentication enabled' : 'Two‑factor authentication disabled');
-                            }
-                            if (key === 'offlineMode') {
-                                showToast(newVal ? 'Offline mode enabled. Downloaded content will be available.' : 'Offline mode disabled.');
-                            }
-                            if (key === 'highContrast' || key === 'reducedMotion' || key === 'performanceMode' || key === 'experimentalFeatures') {
-                                if (key === 'performanceMode') {
-                                    showToast(newVal ? 'Performance mode enabled (some effects reduced)' : 'Performance mode disabled');
-                                }
-                                if (key === 'experimentalFeatures') {
-                                    showToast(newVal ? 'Experimental features enabled. New UI elements may appear.' : 'Experimental features disabled');
-                                }
-                                if (key === 'reducedMotion') {
-                                    showToast(newVal ? 'Reduced motion enabled' : 'Reduced motion disabled');
-                                }
-                                if (key === 'highContrast') {
-                                    showToast(newVal ? 'High contrast enabled' : 'High contrast disabled');
-                                }
+                            showToast(`✅ ${key} ${newVal ? 'enabled' : 'disabled'}`);
+                            if (key === 'autoplay') {
+                                // Will be read by player logic
                             }
                         });
                     }
@@ -4577,7 +3844,6 @@
                                     settings = { ...defaultSettings };
                                     saveSettings(settings);
                                     applySettings();
-                                    applyGeneralSettings();
                                     openDetail(settingKey);
                                     showToast('✅ All settings reset to default');
                                 }
@@ -4585,27 +3851,14 @@
                         });
                     }
                 });
-
-                // If downloads panel, add download list container
-                if (settingKey === 'downloads') {
-                    const listContainer = document.createElement('div');
-                    listContainer.id = 'downloadListContainer';
-                    listContainer.style.marginTop = '16px';
-                    listContainer.innerHTML = '<h4 style="font-size:14px;margin-bottom:8px;">Downloaded Items</h4><div id="downloadList"></div>';
-                    detailBody.appendChild(listContainer);
-                    renderDownloadList();
-                }
-
                 detailOverlay.classList.add('open');
             }
 
-            // ---- Close detail ----
             closeDetail.addEventListener('click', () => detailOverlay.classList.remove('open'));
             detailOverlay.addEventListener('click', (e) => {
                 if (e.target === detailOverlay) detailOverlay.classList.remove('open');
             });
 
-            // ---- Wire up settings cards ----
             document.querySelectorAll('.setting-card').forEach(card => {
                 card.addEventListener('click', () => {
                     const key = card.dataset.setting;
@@ -4613,12 +3866,127 @@
                 });
             });
 
-            // ---- Keyboard shortcut ----
             document.addEventListener('keydown', (e) => {
                 if (e.key === 'Escape' && detailOverlay.classList.contains('open')) {
                     detailOverlay.classList.remove('open');
                 }
             });
+
+            // ================================================================
+            //  POSTER SIDE PANEL – UPDATE FUNCTION
+            // ================================================================
+            function updateSidePanel() {
+                const panel = document.getElementById('posterSidePanel');
+                if (!panel) return;
+
+                const item = displayItems && displayItems.length > currentIdx ? displayItems[currentIdx] : null;
+                if (!item) {
+                    panel.innerHTML = `
+                        <div class="poster-empty">
+                            <i class="fas fa-play-circle"></i>
+                            <span>Select a channel, movie, or video to see details here</span>
+                        </div>
+                    `;
+                    return;
+                }
+
+                let posterImg = '';
+                let title = '';
+                let metaLines = [];
+                let actions = '';
+                let isFav = false;
+
+                // Determine content type and build panel
+                if (currentSource === 'local' || currentSource === 'global') {
+                    // TV Channel
+                    const ch = item;
+                    posterImg = ch.logo && ch.logo.startsWith('http') ? ch.logo : '';
+                    title = ch.name || 'Unknown Channel';
+                    if (ch.country) metaLines.push(`🌍 ${ch.country}`);
+                    if (ch.category) metaLines.push(`📺 ${ch.category}`);
+                    isFav = isChannelFav(ch);
+                    actions = `
+                        <button class="btn-sm primary" onclick="document.getElementById('favBtn').click()">
+                            <i class="fas fa-${isFav ? 'heart' : 'heart'}"></i> ${isFav ? 'Favorited' : 'Favorite'}
+                        </button>
+                        <button class="btn-sm" onclick="document.getElementById('downloadBtn')?.click()">
+                            <i class="fas fa-download"></i> Download
+                        </button>
+                        <button class="btn-sm" onclick="shareItem(${JSON.stringify(ch)}, 'channel')">
+                            <i class="fas fa-share-alt"></i> Share
+                        </button>
+                    `;
+                } else if (currentSource === 'movies' && item.imdbId) {
+                    // Movie
+                    const m = item;
+                    posterImg = m.logo && m.logo.startsWith('http') ? m.logo : '';
+                    title = m.name || 'Unknown Movie';
+                    if (m.year) metaLines.push(`📅 ${m.year}`);
+                    if (m.genre) metaLines.push(`🎬 ${m.genre}`);
+                    if (m.rating && m.rating !== 'N/A') metaLines.push(`⭐ ${m.rating}`);
+                    isFav = isMovieFav(m);
+                    actions = `
+                        <button class="btn-sm primary" onclick="document.getElementById('favBtn').click()">
+                            <i class="fas fa-${isFav ? 'heart' : 'heart'}"></i> ${isFav ? 'Favorited' : 'Favorite'}
+                        </button>
+                        <button class="btn-sm" onclick="window.open('https://www.imdb.com/title/${m.imdbId}/', '_blank')">
+                            <i class="fab fa-imdb"></i> IMDb
+                        </button>
+                        <button class="btn-sm" onclick="document.getElementById('downloadBtn')?.click()">
+                            <i class="fas fa-download"></i> Download
+                        </button>
+                        <button class="btn-sm" onclick="shareItem(${JSON.stringify(m)}, 'movie')">
+                            <i class="fas fa-share-alt"></i> Share
+                        </button>
+                    `;
+                } else if (currentSource === 'youtube') {
+                    // YouTube / Video
+                    const v = item;
+                    posterImg = v.thumbnail && v.thumbnail.startsWith('http') ? v.thumbnail : '';
+                    title = v.title || 'Unknown Video';
+                    if (v.channel) metaLines.push(`📺 ${v.channel}`);
+                    if (v.category) metaLines.push(`🏷️ ${v.category}`);
+                    if (v.publishedAt) metaLines.push(`📅 ${v.publishedAt}`);
+                    isFav = isVideoFav(v);
+                    actions = `
+                        <button class="btn-sm primary" onclick="document.getElementById('favBtn').click()">
+                            <i class="fas fa-${isFav ? 'heart' : 'heart'}"></i> ${isFav ? 'Favorited' : 'Favorite'}
+                        </button>
+                        <button class="btn-sm" onclick="document.getElementById('downloadBtn')?.click()">
+                            <i class="fas fa-download"></i> Download
+                        </button>
+                        <button class="btn-sm" onclick="shareItem(${JSON.stringify(v)}, 'video')">
+                            <i class="fas fa-share-alt"></i> Share
+                        </button>
+                    `;
+                } else {
+                    // Fallback
+                    title = item.name || item.title || 'Untitled';
+                }
+
+                const imgHtml = posterImg ?
+                    `<img src="${posterImg}" alt="${title}" onerror="this.style.display='none';this.parentElement.querySelector('.fallback-icon').style.display='flex'">` :
+                    '';
+                const fallbackIcon = !posterImg ?
+                    `<div class="fallback-icon" style="display:flex;"><i class="fas fa-${currentSource === 'movies' ? 'film' : currentSource === 'youtube' ? 'video' : 'tv'}"></i></div>` :
+                    `<div class="fallback-icon" style="display:none;"><i class="fas fa-${currentSource === 'movies' ? 'film' : currentSource === 'youtube' ? 'video' : 'tv'}"></i></div>`;
+
+                panel.innerHTML = `
+                    <div class="poster-image">
+                        ${imgHtml}
+                        ${fallbackIcon}
+                    </div>
+                    <div class="poster-info">
+                        <div class="poster-title">${title}</div>
+                        <div class="poster-meta">
+                            ${metaLines.map(m => `<span class="badge">${m}</span>`).join('')}
+                        </div>
+                        <div class="poster-actions-row">
+                            ${actions}
+                        </div>
+                    </div>
+                `;
+            }
 
             // ================================================================
             //  EXISTING CODE (unchanged except for added hooks)
@@ -4834,7 +4202,6 @@
                 e) {}
 
             function addYoutubeWatchHistory(videoId) {
-                if (!settings.watchHistory) return;
                 youtubeWatchHistory = youtubeWatchHistory.filter(id => id !== videoId);
                 youtubeWatchHistory.unshift(videoId);
                 if (youtubeWatchHistory.length > 50) youtubeWatchHistory.pop();
@@ -4847,7 +4214,6 @@
             try { const mp = localStorage.getItem('movie_progress'); if (mp) movieProgress = JSON.parse(mp); } catch (e) {}
 
             function saveMovieProgress(imdbId, progress) {
-                if (!settings.watchHistory) return;
                 if (progress > 5) { movieProgress[imdbId] = progress;
                     localStorage.setItem('movie_progress', JSON.stringify(movieProgress)); }
             }
@@ -5137,46 +4503,6 @@
             const closeSettings = document.getElementById('closeSettings');
             const settingsFromProfile = document.getElementById('settingsFromProfile');
             const signOutDropdown = document.getElementById('signOutDropdown');
-
-            // ================================================================
-            //  ADD DOWNLOAD BUTTON TO CONTROLS
-            // ================================================================
-            const controls = document.getElementById('videoControls');
-            if (controls) {
-                const dlBtn = document.createElement('button');
-                dlBtn.className = 'control-btn';
-                dlBtn.id = 'downloadBtn';
-                dlBtn.innerHTML = '<i class="fas fa-download"></i>';
-                dlBtn.title = 'Download current media';
-                const fav = document.getElementById('favBtn');
-                controls.insertBefore(dlBtn, fav ? fav.nextSibling : null);
-
-                dlBtn.addEventListener('click', async function(e) {
-                    e.stopPropagation();
-                    if (!displayItems.length || currentIdx >= displayItems.length) {
-                        showToast('Nothing to download', true);
-                        return;
-                    }
-                    const item = displayItems[currentIdx];
-                    let dlItem = {
-                        title: item.name || item.title || 'Untitled',
-                        type: currentSource,
-                        url: item.url || item.videoId || item.imdbId,
-                        thumbnail: item.logo || item.thumbnail || '',
-                        size: 1024 * 1024 * 5 // simulate 5MB
-                    };
-                    if (currentSource === 'movies' && item.imdbId) {
-                        dlItem.imdbId = item.imdbId;
-                        dlItem.year = item.year;
-                    }
-                    await addDownload(dlItem);
-                    showToast('✅ Downloaded: ' + dlItem.title);
-                    updateDownloadsInfo();
-                    if (detailOverlay.classList.contains('open')) {
-                        renderDownloadList();
-                    }
-                });
-            }
 
             // ================================================================
             //  HELPER FUNCTIONS
@@ -5586,6 +4912,8 @@
                 loadingOverlay.classList.remove('active');
                 updateControlsVisibility();
                 if (videoItem.videoId) addYoutubeWatchHistory(videoItem.videoId);
+                // Update side panel
+                setTimeout(updateSidePanel, 100);
             }
 
             function addVideoByUrl(url) {
@@ -5646,10 +4974,11 @@
                 loadingOverlay.classList.remove('active');
                 updateControlsVisibility();
                 showToast(`▶️ Playing trailer: ${movie.name}`);
+                setTimeout(updateSidePanel, 100);
             }
 
             // ================================================================
-            //  playChannel (core) – with autoplay ended listener
+            //  playChannel (core) – with side panel update hook
             // ================================================================
             async function playChannel(index, isRetry = false) {
                 if (!displayItems.length) return;
@@ -5663,6 +4992,9 @@
                 movieIframe.style.display = 'none';
                 if (channelInfoTimer) clearTimeout(channelInfoTimer);
                 channelInfo.style.opacity = '1';
+
+                // Update side panel immediately with current item
+                setTimeout(updateSidePanel, 50);
 
                 if (currentSource === 'movies' && item.imdbId) {
                     channelInfo.innerHTML =
@@ -5692,12 +5024,8 @@
                             video.play();
                             populateQuality(hls.levels);
                             updateControlsVisibility();
-                            video.addEventListener('ended', function onEnded() {
-                                if (settings.autoplay) {
-                                    playNext();
-                                }
-                                video.removeEventListener('ended', onEnded);
-                            });
+                            // Update side panel again after stream loads
+                            setTimeout(updateSidePanel, 200);
                         });
                         hls.on(Hls.Events.ERROR, (_, data) => {
                             if (data.fatal) {
@@ -5717,6 +5045,7 @@
                     showToast('Select a video from YouTube panel');
                     loadingOverlay.classList.remove('active');
                     channelInfoTimer = setTimeout(() => channelInfo.style.opacity = '0', 5000);
+                    // Side panel already updated
                 } else {
                     if (!isRetry) errorCount = 0;
                     let url = item.url;
@@ -5739,7 +5068,7 @@
                             populateQuality(hls.levels);
                             errorCount = 0;
                             updateControlsVisibility();
-                            if (settings.watchHistory && (currentSource === 'local' || currentSource === 'global')) {
+                            if (currentSource === 'local' || currentSource === 'global') {
                                 recentlyWatched = recentlyWatched.filter(c => c.url !== item.url);
                                 recentlyWatched.unshift({ ...item });
                                 if (recentlyWatched.length > 20) recentlyWatched.pop();
@@ -5747,12 +5076,7 @@
                                     recentlyWatched));
                                 renderCategoryTabs();
                             }
-                            video.addEventListener('ended', function onEnded() {
-                                if (settings.autoplay) {
-                                    playNext();
-                                }
-                                video.removeEventListener('ended', onEnded);
-                            });
+                            setTimeout(updateSidePanel, 200);
                         });
                         hls.on(Hls.Events.ERROR, (_, data) => {
                             if (data.fatal) {
@@ -5777,7 +5101,7 @@
                         video.onloadedmetadata = () => {
                             loadingOverlay.classList.remove('active');
                             errorCount = 0;
-                            if (settings.watchHistory && (currentSource === 'local' || currentSource === 'global')) {
+                            if (currentSource === 'local' || currentSource === 'global') {
                                 recentlyWatched = recentlyWatched.filter(c => c.url !== item.url);
                                 recentlyWatched.unshift({ ...item });
                                 if (recentlyWatched.length > 20) recentlyWatched.pop();
@@ -5785,12 +5109,7 @@
                                     recentlyWatched));
                                 renderCategoryTabs();
                             }
-                            video.addEventListener('ended', function onEnded() {
-                                if (settings.autoplay) {
-                                    playNext();
-                                }
-                                video.removeEventListener('ended', onEnded);
-                            });
+                            setTimeout(updateSidePanel, 200);
                         };
                         video.onerror = () => {
                             errorCount++;
@@ -6501,6 +5820,7 @@
                     updateErrorButtons();
                     videoFavToggle.classList.toggle('active', showVideoFavoritesOnly);
                     updateFavButton();
+                    setTimeout(updateSidePanel, 100);
                     return;
                 }
 
@@ -6546,6 +5866,7 @@
                 movieFavToggle.classList.toggle('active', showFavMovies);
                 updateFavButton();
                 if (currentSource === 'local' || currentSource === 'global') updateCountryFilter();
+                setTimeout(updateSidePanel, 150);
             }
 
             // ================================================================
@@ -6627,6 +5948,7 @@
                     sourceBadge.textContent = sourceName;
                     updateLiveBadge();
                     updateFavButton();
+                    setTimeout(updateSidePanel, 100);
                     return;
                 }
                 sourceBadge.textContent = sourceName;
@@ -6645,10 +5967,11 @@
                         document.createElement('span');
                         dot.className = 'status-dot';
                         avatarEl.appendChild(dot); } }
+                setTimeout(updateSidePanel, 200);
             }
 
             // ================================================================
-            //  PROFILE OVERLAY ACTIONS
+            //  PROFILE OVERLAY ACTIONS (NEW)
             // ================================================================
             function setupProfileActions() {
                 const profileMenu = document.getElementById('profileMenu');
@@ -6659,13 +5982,14 @@
                         const action = this.dataset.action;
                         if (!action) return;
 
+                        // Close profile overlay after action
                         profileOverlay.classList.remove('open');
 
                         switch (action) {
                             case 'continue':
                                 showToast('📺 Continue Watching: 4 items');
                                 if (currentSource === 'movies') {
-                                    // show continue watching in movies
+                                    // Show continue watching in movies
                                 } else {
                                     setSource('local');
                                     if (recentlyWatched.length > 0) {
@@ -6717,7 +6041,6 @@
                                     settings = { ...defaultSettings };
                                     saveSettings(settings);
                                     applySettings();
-                                    applyGeneralSettings();
                                 }
                                 break;
                             default:
@@ -6737,7 +6060,6 @@
                         settings = { ...defaultSettings };
                         saveSettings(settings);
                         applySettings();
-                        applyGeneralSettings();
                     }
                 });
             }
@@ -6814,6 +6136,7 @@
                     searchInput.value = '';
                     searchQuery = '';
                     searchClear.style.display = 'none';
+                    setTimeout(updateSidePanel, 100);
                 });
             });
 
@@ -7027,6 +6350,7 @@
                     updateFavButton();
                     showToast(isVideoFav(item) ? '❤️ Added to favorites' : '💔 Removed from favorites');
                 }
+                setTimeout(updateSidePanel, 100);
             });
 
             // ---- Keyboard shortcuts ----
@@ -7114,30 +6438,12 @@
 
             // ---- Clock ----
             function updateClockAndDate() {
-                const tz = settings.timezone || 'UTC';
                 const now = new Date();
-                try {
-                    document.getElementById('liveClock').innerText = now.toLocaleTimeString([], {
-                        hour: '2-digit',
-                        minute: '2-digit',
-                        second: '2-digit',
-                        timeZone: tz
-                    });
-                    const dateSpan = document.querySelector('#dateDisplay span');
-                    if (dateSpan) {
-                        dateSpan.innerText = now.toLocaleDateString([], {
-                            weekday: 'short',
-                            month: 'short',
-                            day: 'numeric',
-                            timeZone: tz
-                        });
-                    }
-                } catch (e) {
-                    // fallback
-                    document.getElementById('liveClock').innerText = now.toLocaleTimeString();
-                    const dateSpan = document.querySelector('#dateDisplay span');
-                    if (dateSpan) dateSpan.innerText = now.toLocaleDateString();
-                }
+                document.getElementById('liveClock').innerText = now.toLocaleTimeString([], { hour: '2-digit',
+                    minute: '2-digit', second: '2-digit' });
+                const dateSpan = document.querySelector('#dateDisplay span');
+                if (dateSpan) dateSpan.innerText = now.toLocaleDateString([], { weekday: 'short', month: 'short',
+                    day: 'numeric' });
             }
             setInterval(updateClockAndDate, 1000);
             updateClockAndDate();
@@ -7209,7 +6515,8 @@
             // ================================================================
             setSource('local');
             setTimeout(() => { updateLiveBadge();
-                updateFavButton(); }, 500);
+                updateFavButton();
+                updateSidePanel(); }, 500);
 
             console.log('✅ DarkRanks ULTRA — all settings & profile actions fully functional');
         })();
